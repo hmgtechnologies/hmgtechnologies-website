@@ -108,12 +108,38 @@ function initProgress() {
    NEW v2: supports data-aos="fade|slide-left|slide-right|zoom"
            and data-delay="ms" for staggered reveals.
    Fallback: all elements visible if IntersectionObserver unavailable.
+
+   BUG FIX (June 2026):
+   ─────────────────────
+   Problem: Elements already in the viewport on page load (above-the-fold
+   content like the hero section) received opacity:0 from the AOS CSS class
+   but the IntersectionObserver callback was unreliable for them because
+   some browsers fire the callback before CSS is fully applied, or don't
+   re-fire for elements already intersecting at observer creation time.
+   
+   Fix applied:
+   1. Elements in the viewport at init time get .visible immediately (0ms delay)
+   2. A 300ms safety-net timer force-reveals any .aos element that is still
+      invisible and within / above the current scroll position
+   3. .hero-text and .hero-eyebrow are NEVER assigned .aos class (done in HTML)
+   4. The observer threshold lowered to 0.05 for better sensitivity
 ───────────────────────────────────────────────────────────────── */
 function initAOS() {
   const els = document.querySelectorAll('.aos');
+
+  // Ensure default animation type is set
+  els.forEach(el => {
+    if (!el.dataset.aos) el.dataset.aos = 'fade';
+  });
+
+  // No IntersectionObserver support → show everything immediately
   if (!els.length || !('IntersectionObserver' in window)) {
-    els.forEach(e => e.classList.add('visible')); return;
+    els.forEach(e => e.classList.add('visible'));
+    return;
   }
+
+  const viewportH = window.innerHeight;
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
@@ -121,12 +147,44 @@ function initAOS() {
       setTimeout(() => en.target.classList.add('visible'), delay);
       obs.unobserve(en.target);
     });
-  }, { threshold: 0.1 });
-  els.forEach(el => {
-    // Default animation variant is 'fade' if none specified
-    if (!el.dataset.aos) el.dataset.aos = 'fade';
-    obs.observe(el);
+  }, {
+    threshold: 0.05,           // BUG FIX: was 0.1 — lower threshold catches more
+    rootMargin: '0px 0px 0px 0px'
   });
+
+  els.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    // BUG FIX: If element is already fully or partially in the viewport
+    // at page load time, make it visible immediately — don't wait for observer
+    if (rect.top < viewportH && rect.bottom > 0) {
+      const delay = parseInt(el.dataset.delay || 0);
+      setTimeout(() => el.classList.add('visible'), Math.min(delay, 50));
+    } else {
+      obs.observe(el);
+    }
+  });
+
+  // BUG FIX: Safety-net — after 300ms, force-reveal any .aos element
+  // that is still invisible and at or above the viewport bottom.
+  // This catches race conditions between CSS loading and JS execution.
+  setTimeout(() => {
+    document.querySelectorAll('.aos:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < viewportH + 100) {
+        el.classList.add('visible');
+      }
+    });
+  }, 300);
+
+  // BUG FIX: Second safety-net at 1000ms for slow connections
+  setTimeout(() => {
+    document.querySelectorAll('.aos:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < viewportH + 200) {
+        el.classList.add('visible');
+      }
+    });
+  }, 1000);
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -160,21 +218,31 @@ function initCounters() {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   06. SMOOTH SCROLL (v1 preserved)
-   All internal anchor links (#id) scroll smoothly with a 70px
-   offset to account for the fixed navigation bar.
+   06. SMOOTH SCROLL (v1 preserved + BUG FIX)
+   All internal anchor links (#id) scroll smoothly.
+   BUG FIX: Correctly calculates total fixed header height:
+   announcement bar (40px, or 0 if dismissed) + nav (64px) + 8px buffer.
 ───────────────────────────────────────────────────────────────── */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const id = a.getAttribute('href').slice(1);
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      const id = href.slice(1);
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
-      const navH = document.querySelector('.nav')?.offsetHeight || 64;
-      const annH = document.body.classList.contains('ann-gone') ? 0 : (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--ann-h')) || 40);
-      const top = window.scrollY + target.getBoundingClientRect().top - navH - annH - 8;
-      window.scrollTo({ top, behavior: 'smooth' });
+
+      // Calculate total fixed header height dynamically
+      const annGone = document.body.classList.contains('ann-gone');
+      const annH    = annGone ? 0 : (parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--ann-h')
+      ) || 40);
+      const navH    = document.querySelector('.nav')?.offsetHeight || 64;
+      const totalOffset = annH + navH + 8; // 8px breathing room
+
+      const top = window.scrollY + target.getBoundingClientRect().top - totalOffset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     });
   });
 }
@@ -620,24 +688,37 @@ function initCharCounters() {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   19. SCROLL-SPY (NEW v2)
-   As the user scrolls, the nav link corresponding to the currently
-   visible section is highlighted with the .active class.
-   Works by watching all sections with an id attribute.
+   19. SCROLL-SPY (NEW v2 — BUG FIXED)
+   BUG FIX: The original scroll-spy was conflicting with the page-based
+   active nav link highlighter (initActiveNav). On a multi-page site,
+   nav links point to page URLs (services.html, products.html) — not
+   to #section anchors. The spy was incorrectly removing .active from
+   the correct page link.
+   
+   FIX: Scroll-spy is now ONLY active on the homepage (index.html)
+   where in-page sections exist, and only targets nav links that
+   contain a '#' in their href (in-page anchor links).
+   On inner pages, the page-based highlighter (initActiveNav) wins.
 ───────────────────────────────────────────────────────────────── */
 function initScrollSpy() {
+  // Only run on index/homepage
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  if (page !== 'index.html' && page !== '' && page !== '/') return;
+
   const sections = document.querySelectorAll('section[id]');
   if (!sections.length || !('IntersectionObserver' in window)) return;
 
-  const navLinks = document.querySelectorAll('.nav-links a');
+  // Only target nav links that are in-page anchors (#id)
+  const anchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!anchorLinks.length) return; // No anchor links on this page nav → skip
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
       const id = en.target.id;
-      navLinks.forEach(a => {
+      anchorLinks.forEach(a => {
         const href = a.getAttribute('href') || '';
-        a.classList.toggle('active', href.endsWith('#' + id));
+        a.classList.toggle('active', href === '#' + id);
       });
     });
   }, { rootMargin: '-40% 0px -40% 0px' });
