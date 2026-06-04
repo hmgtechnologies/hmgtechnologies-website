@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Portfolio | HMG Technologies — 34 Deployed Projects Across 7 Industries</title>
+  <meta name="description" content="HMG Technologies portfolio: 34 live deployed projects across EdTech, ML, data science, simulators, and LMS platforms. All documented honestly with live links."/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/portfolio.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .port-stats { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-bottom:3rem; }
+    .port-stat { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.2rem; text-align:center; }
+
+    /* Section headers */
+    .port-sec { margin-bottom:4rem; }
+    .port-sec-hdr { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; justify-content:space-between; }
+    .psh-left { display:flex; align-items:center; gap:1rem; }
+    .psh-icon { font-size:1.6rem; }
+    .psh-title { font-size:1.1rem; font-weight:800; }
+    .psh-sub   { font-size:.78rem; color:var(--text2); margin-top:.1rem; }
+    .psh-count { font-size:.72rem; background:var(--bg4); border:1px solid var(--border); padding:.28rem .85rem; border-radius:50px; color:var(--text2); }
+
+    /* ML project cards */
+    .ml-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.4rem; }
+    .ml-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.7rem; display:flex; flex-direction:column; transition:all var(--tr); }
+    .ml-card:hover { border-color:rgba(14,165,233,.4); transform:translateY(-3px); box-shadow:var(--shadow-blue); }
+    .ml-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.9rem; }
+    .ml-cat { font-size:.64rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.07em; text-align:right; }
+    .ml-name { font-size:1rem; font-weight:800; margin-bottom:.5rem; }
+    .ml-story { margin-bottom:.9rem; }
+    .ml-story-row { display:flex; gap:.5rem; margin-bottom:.45rem; }
+    .ms-lbl { font-size:.61rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; padding:.18rem .52rem; border-radius:4px; white-space:nowrap; align-self:flex-start; margin-top:.12rem; }
+    .ms-problem  { background:rgba(244,63,94,.1);  color:#f87171; }
+    .ms-solution { background:var(--blue-glow);     color:var(--blue); }
+    .ms-notable  { background:rgba(251,191,36,.1);  color:#fbbf24; }
+    .ms-text { font-size:.8rem; color:var(--text2); line-height:1.65; }
+    .ml-metrics { display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:.8rem; }
+    .ml-metric { font-size:.67rem; background:var(--bg4); border:1px solid var(--border); border-radius:4px; padding:.18rem .52rem; color:var(--blue); font-weight:700; font-family:var(--ff-mono); }
+    .ml-stack { display:flex; gap:.35rem; flex-wrap:wrap; margin-bottom:1.1rem; }
+    .ml-links { display:flex; gap:.55rem; flex-wrap:wrap; margin-top:auto; }
+    .ml-link { font-size:.75rem; font-weight:600; color:var(--blue); padding:.32rem .82rem; border:1px solid rgba(14,165,233,.3); border-radius:6px; transition:all var(--tr); }
+    .ml-link:hover { background:var(--blue-glow); }
+    .ml-link.primary { background:var(--blue-glow); }
+
+    /* LMS grid */
+    .lms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1rem; }
+    .lms-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.3rem; display:flex; flex-direction:column; transition:all var(--tr); }
+    .lms-card:hover { border-color:rgba(14,165,233,.4); transform:translateY(-3px); }
+    .lms-icon { font-size:1.4rem; margin-bottom:.6rem; }
+    .lms-name { font-size:.9rem; font-weight:800; color:var(--blue); margin-bottom:.4rem; }
+    .lms-desc { font-size:.77rem; color:var(--text2); line-height:1.6; flex:1; margin-bottom:.8rem; }
+    .lms-link { font-size:.75rem; color:var(--blue); font-weight:700; border:1px solid rgba(14,165,233,.3); padding:.3rem .75rem; border-radius:6px; text-align:center; transition:all var(--tr); }
+    .lms-link:hover { background:var(--blue-glow); }
+
+    /* Closing quote */
+    .closing-quote { background:linear-gradient(135deg,rgba(14,165,233,.06),rgba(34,211,238,.03)); border:1px solid var(--border); border-radius:var(--radius-xl); padding:3rem; text-align:center; margin-top:3rem; }
+    .cq-text { font-size:1rem; font-style:italic; color:var(--text); line-height:1.85; max-width:700px; margin:0 auto 1rem; }
+    .cq-author { font-size:.8rem; color:var(--muted); margin-bottom:1.5rem; }
+
+    @media(max-width:640px){ .port-stats{grid-template-columns:repeat(2,1fr);} }
+  </style>
+</head>
+<body>
+<!-- ANNOUNCEMENT BAR (v2) -->
+<div class="ann-bar" role="banner" aria-label="Site announcement">
+  <span>🚀 CBT Pro is live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy FREE for your school →</a></span>
+  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+</div>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="HMG Technologies Home">
+      <img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#enquire">💬 Get a Quote</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> → <span>Portfolio</span></div>
+    <div class="section-label">Proven Work</div>
+    <h1 class="section-title">34 Projects. <em>All Live. All Documented.</em></h1>
+    <p class="section-sub" style="margin-bottom:1.5rem;">Every project here started with a real problem — not a Kaggle competition or a client demo. All are live, documented honestly — including the failures, the data leakage fix, and the models that underperformed. This is what serious technology development looks like.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <a href="#ml-models" class="btn btn-ghost btn-sm">📊 ML Models</a>
+      <a href="#simulators-port" class="btn btn-ghost btn-sm">🛠️ Simulators</a>
+      <a href="#lms-platforms" class="btn btn-ghost btn-sm">📚 LMS</a>
+      <a href="#edtech-tools" class="btn btn-ghost btn-sm">🏫 EdTech Tools</a>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1280px;margin:0 auto;padding:3rem 2rem;">
+
+  <!-- Stats -->
+  <div class="port-stats">
+    <div class="port-stat aos" data-aos="fade"><div class="stat-num" data-count="34">34</div><div class="stat-lbl">Total Live Projects</div></div>
+    <div class="port-stat aos" data-aos="fade" data-delay="60"><div class="stat-num" data-count="7">7</div><div class="stat-lbl">Industries Served</div></div>
+    <div class="port-stat aos" data-aos="fade" data-delay="120"><div class="stat-num" data-count="7">7</div><div class="stat-lbl">ML Models Deployed</div></div>
+    <div class="port-stat aos" data-aos="fade" data-delay="180"><div class="stat-num" data-count="11">11</div><div class="stat-lbl">Data Tool Simulators</div></div>
+    <div class="port-stat aos" data-aos="fade" data-delay="240"><div class="stat-num">₦0</div><div class="stat-lbl">CBT Pro Budget</div></div>
+  </div>
+
+  <!-- ML MODELS -->
+  <div class="port-sec" id="ml-models">
+    <div class="port-sec-hdr">
+      <div class="psh-left"><div class="psh-icon">📊</div><div><div class="psh-title" style="color:var(--blue);">Machine Learning & Data Science Models</div><div class="psh-sub">End-to-end pipelines · All live on Streamlit · @cssadewale / @hmgtechnologies</div></div></div>
+      <span class="psh-count">7 Models</span>
+    </div>
+    <div class="ml-grid">
+
+      <div class="ml-card aos" data-aos="fade"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live · NLP</span><span class="ml-cat">Text Classification · 3MTT Capstone</span></div><div class="ml-name">TruthLens — Fake News Detector</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Not every student or reader can fact-check at speed in today's information environment.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">Full NLP pipeline: cleaning → tokenisation → lemmatisation → TF-IDF (20K features) + VADER sentiment → XGBoost. Formally assessed 3MTT Capstone 2.</span></div></div><div class="ml-metrics"><span class="ml-metric">AUC 0.9393</span><span class="ml-metric">Acc 86.75%</span><span class="ml-metric">12,999 articles</span></div><div class="ml-stack"><span class="tag tag-blue">XGBoost</span><span class="tag tag-blue">TF-IDF</span><span class="tag">NLTK</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-fake-news-detector.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/fake-news-detector" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade" data-delay="80"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Regression · Workplace Wellbeing</span></div><div class="ml-name">NeuroWell — Employee Burnout Rate Predictor</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Predict employee burnout before productivity and health collapse — an early warning, not a lagging consequence.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">Gradient Boosting · 108 GridSearchCV configs · Mental fatigue (r=0.878) = 85.9% of model importance · joblib serialisation.</span></div></div><div class="ml-metrics"><span class="ml-metric">R² 0.855</span><span class="ml-metric">RMSE 0.072</span><span class="ml-metric">22,750 records</span></div><div class="ml-stack"><span class="tag tag-blue">Gradient Boosting</span><span class="tag tag-blue">GridSearchCV</span><span class="tag">joblib</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-burnout-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/burnout-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade" data-delay="160"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Binary Classification · Banking</span></div><div class="ml-name">Bank Customer Churn Prediction</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Identify customers about to leave before they do — turning reactive retention into proactive strategy.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">Gradient Boosting on 10,000 bank records. Multiple classifiers compared on precision-recall tradeoffs. Quantified retention recommendations.</span></div></div><div class="ml-metrics"><span class="ml-metric">F1 0.609</span><span class="ml-metric">AUC 0.868</span><span class="ml-metric">10,000 records</span></div><div class="ml-stack"><span class="tag tag-blue">Gradient Boosting</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-bank-customer-churn-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/bank-customer-churn-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Binary Classification · Insurance</span></div><div class="ml-name">Insurance Claim Prediction</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Predict fraudulent or high-cost insurance claims before processing to stop revenue loss.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">Random Forest + SMOTE + GridSearchCV + SHAP + FastAPI on 7,014 records. CV F1 ~0.79. 6 business recommendations. SHAP explains every prediction.</span></div></div><div class="ml-metrics"><span class="ml-metric">CV F1 ~0.79</span><span class="ml-metric">7,014 records</span><span class="ml-metric">SHAP + FastAPI</span></div><div class="ml-stack"><span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">SHAP</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-insurance-claim-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/insurance-claim-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade" data-delay="80"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Binary Classification · HR Analytics</span></div><div class="ml-name">Algorithmic Staff Promotion — Yakub Trading Group</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Remove bias from HR promotion reviews. Flag high-potential employees with data, not gut feel.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">Random Forest + GridSearchCV + SHAP on 38,312 records. Fairness analysis via SHAP. Objective, data-backed promotion recommendations.</span></div></div><div class="ml-metrics"><span class="ml-metric">AUC 0.891</span><span class="ml-metric">38,312 records</span><span class="ml-metric">SHAP Fairness</span></div><div class="ml-stack"><span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">SHAP</span><span class="tag">GridSearchCV</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-staff-promotion-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/staff-promotion-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade" data-delay="160"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Binary Classification · Financial Inclusion</span></div><div class="ml-name">Income Level Prediction</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Predict income bracket to power financial inclusion and credit scoring for underbanked populations.</span></div><div class="ml-story-row"><span class="ms-lbl ms-solution">Solution</span><span class="ms-text">UCI Census dataset (48,842 records). 5-model comparison with SMOTE. Full pipeline: encoding, scaling, imbalance treatment.</span></div></div><div class="ml-metrics"><span class="ml-metric">48,842 records</span><span class="ml-metric">5-Model Comparison</span><span class="ml-metric">SMOTE</span></div><div class="ml-stack"><span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">SMOTE</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-income-level-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/income-level-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+      <div class="ml-card aos" data-aos="fade"><div class="ml-top"><span class="badge badge-live"><span class="live-dot"></span> Live</span><span class="ml-cat">Multi-class Classification · Logistics</span></div><div class="ml-name">🚚 SwiftChain Delivery Delay Prediction</div><div class="ml-story"><div class="ml-story-row"><span class="ms-lbl ms-problem">Problem</span><span class="ms-text">Classify 15,549 logistics records across three delivery outcomes before dispatch.</span></div><div class="ml-story-row"><span class="ms-lbl ms-notable">Notable</span><span class="ms-text">Transparently documents a data leakage fix in the notebook — because honest engineering matters more than clean-looking numbers.</span></div></div><div class="ml-metrics"><span class="ml-metric">Acc 62%</span><span class="ml-metric">F1 0.579</span><span class="ml-metric">15,549 orders</span></div><div class="ml-stack"><span class="tag tag-blue">Gradient Boosting</span><span class="tag">SMOTE</span><span class="tag">Streamlit</span></div><div class="ml-links"><a href="https://cssadewale-swiftchain-delivery-prediction.streamlit.app/" class="ml-link primary" target="_blank" rel="noopener">↗ Live App</a><a href="https://github.com/cssadewale/swiftchain-delivery-prediction" class="ml-link" target="_blank" rel="noopener">GitHub</a></div></div>
+
+    </div>
+  </div>
+
+  <!-- LMS PLATFORMS -->
+  <div class="port-sec" id="lms-platforms">
+    <div class="port-sec-hdr">
+      <div class="psh-left"><div class="psh-icon">📚</div><div><div class="psh-title" style="color:var(--blue);">HMG Academy LMS — Learning Platforms</div><div class="psh-sub">Data science curriculum + Nigerian secondary school curriculum · @hmgacademyhub</div></div></div>
+      <span class="psh-count">11 Platforms</span>
+    </div>
+    <div class="lms-grid">
+      <div class="lms-card aos" data-aos="fade"><div class="lms-icon">🗄️</div><div class="lms-name">SQL Learn</div><p class="lms-desc">Interactive SQL learning — from fundamentals to advanced queries. Built for data analysts and scientists.</p><a href="https://sqllearn-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="40"><div class="lms-icon">🚀</div><div class="lms-name">Streamlit Learn</div><p class="lms-desc">Learn to build and deploy live data apps with Streamlit — from notebook to web app.</p><a href="https://streamlitlearn-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="80"><div class="lms-icon">📊</div><div class="lms-name">Excel Learn</div><p class="lms-desc">Comprehensive Excel — from basic spreadsheets to advanced formulas, pivot tables, and dashboards.</p><a href="https://excellearn-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="120"><div class="lms-icon">🧬</div><div class="lms-name">Data Science Learn</div><p class="lms-desc">End-to-end data science curriculum — EDA, feature engineering, model building, and deployment.</p><a href="https://datascience-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade"><div class="lms-icon">📈</div><div class="lms-name">Data Analysis Learn</div><p class="lms-desc">Practical data analysis from raw data to insight — Excel, SQL, Python, and visualisation.</p><a href="https://dataanalysis-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="40"><div class="lms-icon">🐍</div><div class="lms-name">PyDataFlow</div><p class="lms-desc">Python for Data Science — structured from first print() to deployed ML model for absolute beginners.</p><a href="https://pydataflow-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="80"><div class="lms-icon">🎨</div><div class="lms-name">VizLearn</div><p class="lms-desc">Data Visualisation in Python — Matplotlib, Seaborn, and Plotly for clear, communicative charts.</p><a href="https://vizlearn-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="120"><div class="lms-icon">🤖</div><div class="lms-name">ML Lab</div><p class="lms-desc">Machine Learning curriculum — classification, regression, NLP, and model evaluation with real datasets.</p><a href="https://mllab-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade"><div class="lms-icon">🎒</div><div class="lms-name">Junior Class</div><p class="lms-desc">Nigerian JSS1–JSS3 curriculum — all core subjects for junior secondary students.</p><a href="https://juniorclass-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="40"><div class="lms-icon">🎓</div><div class="lms-name">Senior Class</div><p class="lms-desc">Nigerian SSS1–SSS3 curriculum — Science, Arts, and Commercial streams. WAEC/NECO focused.</p><a href="https://seniorclass-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+      <div class="lms-card aos" data-aos="fade" data-delay="80"><div class="lms-icon">🧭</div><div class="lms-name">QueryPilot</div><p class="lms-desc">Intelligent SQL query assistant — helping learners write, debug, and understand SQL with guided support.</p><a href="https://querypilot-hmgacademy.vercel.app/" class="lms-link" target="_blank" rel="noopener">↗ Open Platform</a></div>
+    </div>
+  </div>
+
+  <!-- Closing quote -->
+  <div class="closing-quote aos" data-aos="fade">
+    <p class="cq-text">"Every project on this page started not with a framework or a dataset — but with a problem I watched real students, teachers, businesses, or organisations struggle with. The classroom, the boardroom, the community — these are the briefs. We don't wait for the perfect environment. We use what we understand clearly, leverage AI confidently, and build the solution the problem actually needs."</p>
+    <div class="cq-author">— Adewale Samson Adeagbo · Founder, HMG Technologies · AI-Augmented Solutions Developer</div>
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html#enquire" class="btn btn-blue">Work With Us</a>
+      <a href="services.html" class="btn btn-outline">See Our Services</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">HMG Technologies</div><p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations.</p><div class="footer-socials"><a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" rel="noopener">💼</a><a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" rel="noopener">🐙</a><a href="https://youtube.com/@hmgconcepts" class="footer-social" target="_blank" rel="noopener">📺</a><a href="https://wa.me/2348100866322" class="footer-social" target="_blank" rel="noopener">💬</a></div></div>
+    <div><div class="footer-col-title">Navigation</div><div class="footer-links-list"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div></div>
+    <div><div class="footer-col-title">HMG Family</div><div class="footer-links-list"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Concepts ↗</a><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Academy ↗</a><a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">cssadewale ↗</a></div></div>
+    <div><div class="footer-col-title">GitHub</div><div class="footer-links-list"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">@hmgtechnologies ↗</a><a href="https://github.com/cssadewale" target="_blank" rel="noopener">@cssadewale ↗</a><a href="https://github.com/hmgacademyhub" target="_blank" rel="noopener">@hmgacademyhub ↗</a></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · All Rights Reserved</div><div class="footer-bottom-tagline">Built with AI leverage. Solving real Nigerian problems.</div></div>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

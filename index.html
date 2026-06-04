@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HMG Technologies | AI-Augmented Tools for Nigerian Businesses & Organisations</title>
+  <meta name="description" content="HMG Technologies builds AI-augmented digital tools, data dashboards, CBT systems, and custom software for Nigerian businesses, schools, NGOs, and organisations. Subsidiary of HMG Concepts."/>
+  <meta name="keywords" content="HMG Technologies, AI tools Nigeria, CBT system Nigeria, data dashboard Nigeria, EdTech Nigeria, custom software Nigeria"/>
+  <meta name="author" content="Adewale Samson Adeagbo — HMG Concepts"/>
+  <meta name="robots" content="index, follow"/>
+  <!-- Open Graph -->
+  <meta property="og:title"       content="HMG Technologies | AI-Augmented Tools for Nigerian Businesses"/>
+  <meta property="og:description" content="We build AI-augmented tools, data dashboards, CBT systems, and custom digital solutions for Nigerian businesses and organisations."/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://hmgtechnologies.pages.dev"/>
+  <meta property="og:image"       content="https://hmgtechnologies.pages.dev/assets/images/og-image.jpg"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:site"        content="@cssadewale"/>
+  <meta name="twitter:title"       content="HMG Technologies | AI-Augmented Tools for Nigerian Businesses"/>
+  <meta name="twitter:description" content="EdTech · DataTech · FaithTech tools built for Nigeria."/>
+  <meta name="twitter:image"       content="https://hmgtechnologies.pages.dev/assets/images/og-image.jpg"/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/"/>
+  <link rel="icon" href="assets/images/favicon.png" onerror="this.href='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><text y=\'.9em\' font-size=\'90\'>💻</text></svg>'"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <!-- ══ PAGE-SPECIFIC STYLES ══════════════════════════════════════ -->
+  <style>
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      padding: calc(var(--ann-h) + 80px) 2rem 5rem;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    /* Animated radial glows */
+    .hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(ellipse 70% 60% at 70% 40%, rgba(14,165,233,.1) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 5%  80%, rgba(34,211,238,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 95% 90%, rgba(16,185,129,.04) 0%, transparent 60%);
+    }
+    /* Grid dot-pattern background */
+    .hero::after {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(14,165,233,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-inner {
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 460px; gap: 4rem;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.25);
+      color:var(--blue); font-size:.71rem; font-weight:700;
+      padding:.32rem 1rem; border-radius:50px; margin-bottom:1.4rem;
+      letter-spacing:.06em; text-transform:uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 900; line-height: 1.1; margin-bottom: 1.2rem; letter-spacing:-.02em;
+    }
+    .hero h1 em { font-style:normal; color:var(--blue); }
+    .hero-desc { font-size:1rem; color:var(--text2); line-height:1.8; max-width:540px; margin-bottom:.9rem; }
+    .hero-sub  { font-size:.88rem; color:var(--muted); font-style:italic; max-width:500px; margin-bottom:2rem; border-left:2px solid var(--blue); padding-left:.9rem; line-height:1.65; }
+    .hero-btns { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .trust-row { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
+    .trust-item { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--text2); }
+
+    /* Terminal card */
+    .hero-terminal {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-blue);
+      position:relative;
+    }
+    .terminal-bar {
+      background:var(--bg3); border-bottom:1px solid var(--border);
+      padding:.7rem 1rem; display:flex; align-items:center; gap:.5rem;
+    }
+    .tb-dot { width:10px; height:10px; border-radius:50%; }
+    .tb-title { font-size:.73rem; color:var(--muted); margin-left:.4rem; font-family:var(--ff-mono); }
+    .terminal-body { padding:1.4rem; font-family:var(--ff-mono); font-size:.8rem; line-height:1.9; }
+    .t-comment { color:var(--muted); }
+    .t-key     { color:var(--cyan); }
+    .t-val     { color:#10b981; }
+    .t-str     { color:#fbbf24; }
+    .t-num     { color:#a78bfa; }
+    .t-bool    { color:var(--orange); }
+    .t-line    { display:block; }
+    .t-i       { padding-left:1.2em; }
+
+    /* Floating badges above/below terminal */
+    .float-badge {
+      position:absolute; background:var(--card2); border:1px solid var(--border);
+      border-radius:10px; padding:.6rem .9rem; display:flex; align-items:center; gap:.6rem;
+      font-size:.74rem; color:var(--text2); box-shadow:var(--shadow);
+      animation:float 3s ease-in-out infinite;
+    }
+    .fb1 { top:-18px; right:18px; animation-delay:0s; }
+    .fb2 { bottom:-18px; left:12px; animation-delay:1.5s; }
+    .fb-icon { font-size:1.1rem; }
+    .fb-val  { font-weight:700; color:var(--text); font-size:.82rem; }
+
+    /* ── STATS BAR ───────────────────────────────────────────── */
+    .stats-bar { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:2rem; }
+    .stats-bar-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+    .sbi { text-align:center; padding:.5rem; position:relative; }
+    .sbi:not(:last-child)::after { content:''; position:absolute; right:0; top:20%; height:60%; width:1px; background:var(--border); }
+
+    /* ── SERVICES OVERVIEW ───────────────────────────────────── */
+    .srv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .srv-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius-xl); padding:2rem; position:relative; overflow:hidden;
+      transition:transform var(--tr), border-color var(--tr), box-shadow var(--tr);
+    }
+    .srv-card:hover { transform:translateY(-4px); border-color:rgba(14,165,233,.4); box-shadow:var(--shadow-blue); }
+    .srv-glow { position:absolute; top:-30px; right:-30px; width:100px; height:100px; border-radius:50%; background:var(--blue); opacity:.08; filter:blur(35px); pointer-events:none; }
+    .srv-icon { width:52px; height:52px; border-radius:13px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+    .srv-title { font-size:1rem; font-weight:800; margin-bottom:.5rem; }
+    .srv-desc  { font-size:.84rem; color:var(--text2); line-height:1.75; margin-bottom:1.2rem; }
+    .srv-tags  { display:flex; flex-wrap:wrap; gap:.4rem; }
+
+    /* ── PRODUCTS PREVIEW ────────────────────────────────────── */
+    .prod-preview { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .prod-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius-xl); padding:2rem;
+      transition:transform var(--tr), border-color var(--tr), box-shadow var(--tr);
+    }
+    .prod-card:hover { transform:translateY(-4px); border-color:rgba(14,165,233,.4); box-shadow:var(--shadow-blue); }
+    .prod-card.flagship {
+      grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:2rem;
+      background:linear-gradient(135deg, rgba(14,165,233,.05) 0%, var(--card) 60%);
+      border-color:rgba(14,165,233,.25);
+    }
+    .prod-icon { width:48px; height:48px; border-radius:12px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem; }
+    .prod-name { font-size:1.05rem; font-weight:800; margin-bottom:.35rem; }
+    .prod-desc { font-size:.85rem; color:var(--text2); line-height:1.72; margin-bottom:1.2rem; }
+    .prod-feature { display:flex; align-items:flex-start; gap:.55rem; font-size:.8rem; color:var(--text2); margin-bottom:.4rem; }
+    .pf-check { color:var(--blue); font-weight:700; flex-shrink:0; }
+    .prod-links { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .prod-link { font-size:.76rem; font-weight:600; color:var(--blue); padding:.32rem .85rem; border:1px solid rgba(14,165,233,.3); border-radius:6px; transition:all var(--tr); }
+    .prod-link:hover { background:var(--blue-glow); }
+    .prod-link.primary { background:var(--blue-glow); }
+
+    /* Flagship panel */
+    .flagship-panel { background:var(--bg3); border-radius:var(--radius-lg); padding:1.3rem; font-family:var(--ff-mono); font-size:.76rem; }
+    .fp-label { font-size:.62rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.9rem; }
+    .fp-row { display:flex; justify-content:space-between; padding:.28rem 0; border-bottom:.5px solid var(--border); }
+    .fp-row:last-child { border-bottom:none; }
+    .fp-k { color:var(--text2); }
+    .fp-v { color:var(--blue); font-weight:700; }
+    .fp-v.g { color:var(--green); }
+
+    /* ── WHY US ──────────────────────────────────────────────── */
+    .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
+    .why-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.6rem; transition:all var(--tr); }
+    .why-card:hover { border-color:rgba(14,165,233,.35); transform:translateY(-3px); }
+    .why-icon { font-size:1.6rem; margin-bottom:.8rem; }
+    .why-title { font-size:.9rem; font-weight:700; margin-bottom:.4rem; color:var(--blue); }
+    .why-desc  { font-size:.81rem; color:var(--text2); line-height:1.7; }
+
+    /* ── PROCESS ─────────────────────────────────────────────── */
+    .process-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+    .process-steps::before { content:''; position:absolute; top:27px; left:10%; right:10%; height:2px; background:linear-gradient(90deg, var(--blue), var(--cyan)); z-index:0; }
+    .ps-item { text-align:center; padding:0 .5rem; position:relative; z-index:1; }
+    .ps-num { width:54px; height:54px; border-radius:50%; margin:0 auto .9rem; background:linear-gradient(135deg, var(--blue), #0284c7); display:flex; align-items:center; justify-content:center; font-size:1rem; font-weight:900; color:#fff; box-shadow:0 4px 18px rgba(14,165,233,.35); }
+    .ps-title { font-size:.82rem; font-weight:700; margin-bottom:.3rem; }
+    .ps-desc  { font-size:.74rem; color:var(--text2); line-height:1.6; }
+
+    /* ── TESTIMONIAL CAROUSEL SECTION ───────────────────────── */
+    .carousel-slide { width: calc(33.333% - 1rem); flex-shrink:0; }
+
+    /* ── CONTACT SECTION ─────────────────────────────────────── */
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    .ci-row { display:flex; gap:1rem; margin-bottom:1.3rem; align-items:flex-start; }
+    .ci-icon { width:40px; height:40px; border-radius:10px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .ci-label { font-size:.67rem; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; margin-bottom:.2rem; font-weight:600; }
+    .ci-val   { font-size:.88rem; font-weight:600; color:var(--blue); }
+    .ci-val a { color:inherit; }
+    .contact-form-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-xl); padding:2rem; }
+    #form-message { display:none; font-size:.82rem; padding:.6rem; border-radius:6px; margin-top:.8rem; }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background:linear-gradient(135deg, #0284c7, #0ea5e9, #22d3ee);
+      border-radius:var(--radius-xl); padding:3.5rem 3rem; text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-banner h2 { font-size:clamp(1.6rem,3.5vw,2.3rem); font-weight:900; color:#fff; margin-bottom:.7rem; }
+    .cta-banner p  { font-size:.95rem; color:rgba(255,255,255,.85); max-width:520px; margin:0 auto 2rem; line-height:1.75; }
+    .cta-btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+    .btn-white { background:#fff; color:#0284c7; font-weight:800; }
+    .btn-white:hover { background:#f0f9ff; transform:translateY(-1px); }
+    .btn-white-ol { border:2px solid rgba(255,255,255,.65); color:#fff; background:transparent; }
+    .btn-white-ol:hover { background:rgba(255,255,255,.1); border-color:#fff; }
+
+    /* ── CATEGORY TILES ──────────────────────────────────────── */
+    .cat-tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+    .cat-tile { border-radius:var(--radius-lg); padding:1.2rem; text-align:center; transition:all var(--tr); display:block; }
+    .cat-num  { font-size:1.8rem; font-weight:900; }
+    .cat-lbl  { font-size:.72rem; color:var(--text2); margin-top:.35rem; line-height:1.4; }
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){
+      .hero-inner    { grid-template-columns:1fr; }
+      .hero-terminal { display:none; }
+      .srv-grid      { grid-template-columns:1fr 1fr; }
+      .prod-preview  { grid-template-columns:1fr; }
+      .prod-card.flagship { grid-column:1; grid-template-columns:1fr; }
+      .why-grid      { grid-template-columns:1fr 1fr; }
+      .process-steps { grid-template-columns:1fr 1fr; }
+      .process-steps::before { display:none; }
+      .cat-tiles     { grid-template-columns:repeat(2,1fr); }
+      .contact-grid  { grid-template-columns:1fr; }
+      .stats-bar-inner { grid-template-columns:repeat(3,1fr); }
+      .carousel-slide { width:calc(50% - .65rem); }
+    }
+    @media(max-width:640px){
+      .srv-grid { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr; }
+      .process-steps { grid-template-columns:1fr; }
+      .cat-tiles { grid-template-columns:repeat(2,1fr); }
+      .stats-bar-inner { grid-template-columns:repeat(2,1fr); }
+      .carousel-slide { width:100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR + NAV (v2) -->
+<div class="ann-bar" role="banner" aria-label="Site announcement">
+  <span>🚀 CBT Pro is now live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy it FREE for your school →</a></span>
+  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+</div>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="HMG Technologies Home">
+      <img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html" class="active">Home</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#enquire">💬 Get a Quote</a>
+</div>
+
+<!-- ══ HERO ════════════════════════════════════════════════════════ -->
+<section class="hero" id="home" aria-labelledby="hero-h1">
+  <div class="hero-inner">
+    <div class="hero-text aos" data-aos="fade">
+      <div class="hero-eyebrow"><span class="live-dot"></span> Subsidiary of HMG Concepts · Lagos, Nigeria</div>
+      <h1 id="hero-h1">We Build <em>AI-Augmented</em><br>Tools That Solve<br>Real Problems</h1>
+      <p class="hero-desc">HMG Technologies designs and deploys digital tools, data dashboards, CBT systems, automation platforms, and custom AI-augmented software — built specifically for Nigerian businesses, schools, NGOs, and organisations.</p>
+      <p class="hero-sub">"We don't build technology for its own sake. We build it because a problem demands a solution."</p>
+      <div class="hero-btns">
+        <a href="services.html" class="btn btn-blue">Explore Our Services</a>
+        <a href="products.html" class="btn btn-outline">View Products</a>
+        <a href="contact.html#enquire" class="btn btn-ghost">Get a Quote</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-item">✅ Live Products</span>
+        <span class="trust-item">🇳🇬 Nigerian-Built</span>
+        <span class="trust-item">🤖 AI-Augmented</span>
+        <span class="trust-item">💰 Cost-Effective</span>
+      </div>
+    </div>
+    <!-- Terminal card (hidden on mobile for performance) -->
+    <div class="hero-visual" style="position:relative;">
+      <div class="float-badge fb1"><span class="fb-icon">🤖</span><div><div style="font-size:.62rem;color:var(--muted);">AI-Augmented Dev</div><div class="fb-val">Powered by Clear Thinking</div></div></div>
+      <div class="hero-terminal">
+        <div class="terminal-bar">
+          <div class="tb-dot" style="background:#f43f5e;"></div>
+          <div class="tb-dot" style="background:#fbbf24;"></div>
+          <div class="tb-dot" style="background:#10b981;"></div>
+          <span class="tb-title">hmg_technologies.config.json</span>
+        </div>
+        <div class="terminal-body">
+          <span class="t-line t-comment">// HMG Technologies — What We Are</span>
+          <span class="t-line">{</span>
+          <span class="t-line t-i"><span class="t-key">"company"</span>: <span class="t-str">"HMG Technologies"</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"parent"</span>: <span class="t-str">"HMG Concepts"</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"github"</span>: <span class="t-str">"@hmgtechnologies"</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"approach"</span>: <span class="t-str">"AI-Augmented Development"</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"products_live"</span>: <span class="t-num">34</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"industries_served"</span>: <span class="t-num">7</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"built_for"</span>: [</span>
+          <span class="t-line" style="padding-left:2.4em;"><span class="t-str">"Nigerian SMEs"</span>,</span>
+          <span class="t-line" style="padding-left:2.4em;"><span class="t-str">"Schools &amp; Institutions"</span>,</span>
+          <span class="t-line" style="padding-left:2.4em;"><span class="t-str">"NGOs &amp; Community Orgs"</span>,</span>
+          <span class="t-line" style="padding-left:2.4em;"><span class="t-str">"Churches &amp; Faith Orgs"</span></span>
+          <span class="t-line t-i">],</span>
+          <span class="t-line t-i"><span class="t-key">"cost_effective"</span>: <span class="t-bool">true</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"cbt_pro_budget"</span>: <span class="t-str">"₦0"</span>,</span>
+          <span class="t-line t-i"><span class="t-key">"status"</span>: <span class="t-val">"ACTIVE &amp; BUILDING"</span></span>
+          <span class="t-line">}</span>
+        </div>
+      </div>
+      <div class="float-badge fb2"><span class="fb-icon">📊</span><div><div style="font-size:.62rem;color:var(--muted);">Live Tools</div><div class="fb-val">34 Projects Deployed</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAR ════════════════════════════════════════════════════ -->
+<div class="stats-bar" aria-label="Key statistics">
+  <div class="stats-bar-inner">
+    <div class="sbi aos" data-aos="fade"><div class="stat-num" data-count="34">34</div><div class="stat-lbl">Total Live Projects</div></div>
+    <div class="sbi aos" data-aos="fade" data-delay="80"><div class="stat-num" data-count="7">7</div><div class="stat-lbl">Industries Served</div></div>
+    <div class="sbi aos" data-aos="fade" data-delay="160"><div class="stat-num" data-count="11">11</div><div class="stat-lbl">Data Tool Simulators</div></div>
+    <div class="sbi aos" data-aos="fade" data-delay="240"><div class="stat-num" data-count="500" data-suffix="+">500+</div><div class="stat-lbl">Students Reached</div></div>
+    <div class="sbi aos" data-aos="fade" data-delay="320"><div class="stat-num">₦0</div><div class="stat-lbl">Cost to Schools (CBT Pro)</div></div>
+  </div>
+</div>
+
+<!-- ══ SERVICES OVERVIEW ════════════════════════════════════════════ -->
+<section id="services" style="background:var(--bg2);" aria-labelledby="srv-h2">
+  <div class="section-inner">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title" id="srv-h2">Technology That <em>Teaches Itself to Be Useful</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">We don't build technology for its own sake. We build because a problem in the classroom, the boardroom, or the community demands a solution. Here is what we currently offer.</p>
+    <div class="srv-grid">
+      <div class="srv-card aos" data-aos="slide-left"><div class="srv-glow"></div><div class="srv-icon">🏫</div><div class="srv-title">CBT Systems & EdTech Platforms</div><p class="srv-desc">Custom Computer-Based Testing for schools and institutions. Our flagship CBT Pro is live at zero cost to schools. Teacher portals, analytics, question banks.</p><div class="srv-tags"><span class="tag tag-blue">CBT Pro</span><span class="tag tag-green">Live Today</span><span class="tag">Schools</span></div></div>
+      <div class="srv-card aos" data-aos="fade"      data-delay="80"><div class="srv-glow"></div><div class="srv-icon">📊</div><div class="srv-title">Data Analysis & Business Dashboards</div><p class="srv-desc">Turning raw data into clear, actionable dashboards. Power BI, Tableau, custom Streamlit apps, Excel automation — whatever fits your workflow and budget.</p><div class="srv-tags"><span class="tag tag-blue">Power BI</span><span class="tag tag-blue">Tableau</span><span class="tag">SQL</span></div></div>
+      <div class="srv-card aos" data-aos="slide-right" data-delay="160"><div class="srv-glow"></div><div class="srv-icon">🤖</div><div class="srv-title">AI-Augmented Web Applications</div><p class="srv-desc">Lightweight, fast, cost-effective web apps built with AI augmentation — productivity tools, automation platforms, custom portals for specific business workflows.</p><div class="srv-tags"><span class="tag tag-cyan">AI-Augmented</span><span class="tag">Web Apps</span><span class="tag">Automation</span></div></div>
+      <div class="srv-card aos" data-aos="slide-left" data-delay="80"><div class="srv-glow"></div><div class="srv-icon">🧠</div><div class="srv-title">Machine Learning & Predictive Tools</div><p class="srv-desc">End-to-end ML solutions from EDA to live Streamlit / FastAPI deployment. Fraud detection, churn prediction, HR analytics, logistics forecasting — 7 live models prove it.</p><div class="srv-tags"><span class="tag tag-blue">Python / ML</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span></div></div>
+      <div class="srv-card aos" data-aos="fade"       data-delay="160"><div class="srv-glow"></div><div class="srv-icon">🛠️</div><div class="srv-title">Data Tool Simulators & Learning Environments</div><p class="srv-desc">11 browser-based simulators replicating SQL, Power BI, Excel, Azure, and more. Zero install, zero licence. Ideal for training and onboarding programmes.</p><div class="srv-tags"><span class="tag tag-cyan">11 Simulators</span><span class="tag tag-green">Zero Install</span></div></div>
+      <div class="srv-card aos" data-aos="slide-right" data-delay="240"><div class="srv-glow"></div><div class="srv-icon">🎓</div><div class="srv-title">Digital Skills Training & Consultancy</div><p class="srv-desc">Workshops, training programmes, and strategic technology consultancy. We train your people to understand and use the tools — not just hand them over.</p><div class="srv-tags"><span class="tag tag-orange">Training</span><span class="tag tag-orange">Consultancy</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="services.html" class="btn btn-outline">View All Services in Detail →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS PREVIEW ════════════════════════════════════════════════ -->
+<section id="products" style="background:var(--bg);" aria-labelledby="prod-h2">
+  <div class="section-inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="section-label">Live Products</div>
+        <h2 class="section-title" id="prod-h2">Tools Already <em>Solving Real Problems</em></h2>
+        <p class="section-sub">Not prototypes. Not demos. Deployed tools used by real people right now.</p>
+      </div>
+      <a href="products.html" class="btn btn-outline">View All Products →</a>
+    </div>
+    <div class="prod-preview">
+      <!-- Flagship -->
+      <div class="prod-card flagship aos" data-aos="fade">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+            <div class="prod-icon">🏫</div>
+            <span class="badge badge-live"><span class="live-dot"></span> Live in Classrooms Today</span>
+          </div>
+          <div class="prod-name">CBT Pro — Free Nigerian School Exam Platform</div>
+          <p class="prod-desc">Full CBT platform built on an Android tablet with ₦0 budget. Real students. Real exams. No compromise.</p>
+          <div class="prod-feature"><span class="pf-check">✓</span> CSV question upload + per-student randomisation</div>
+          <div class="prod-feature"><span class="pf-check">✓</span> Anti-cheat + auto-marking + WhatsApp certificates</div>
+          <div class="prod-feature"><span class="pf-check">✓</span> 4-tab teacher analytics dashboard</div>
+          <div class="prod-feature"><span class="pf-check">✓</span> Supabase backend with Row-Level Security</div>
+          <div class="prod-links" style="margin-top:1.2rem;">
+            <a href="https://cbtsystem-hmgacademy.vercel.app/" class="prod-link primary" target="_blank">↗ Live Platform</a>
+            <a href="products.html#cbt-pro"     class="prod-link">Full Details</a>
+            <a href="contact.html#enquire"      class="prod-link">Deploy for My School</a>
+          </div>
+        </div>
+        <div class="flagship-panel">
+          <div class="fp-label">CBT Pro — Live Stats</div>
+          <div class="fp-row"><span class="fp-k">Status</span><span class="fp-v g">● LIVE</span></div>
+          <div class="fp-row"><span class="fp-k">Budget</span><span class="fp-v">₦ 0</span></div>
+          <div class="fp-row"><span class="fp-k">Built on</span><span class="fp-v">Android Tablet</span></div>
+          <div class="fp-row"><span class="fp-k">Backend</span><span class="fp-v">Supabase + RLS</span></div>
+          <div class="fp-row"><span class="fp-k">Cost to schools</span><span class="fp-v g">FREE</span></div>
+          <div class="fp-row"><span class="fp-k">Analytics tabs</span><span class="fp-v">4</span></div>
+          <div class="fp-row"><span class="fp-k">Method</span><span class="fp-v">AI-Augmented Dev</span></div>
+        </div>
+      </div>
+      <!-- ChatLens -->
+      <div class="prod-card aos" data-aos="slide-right" data-delay="80">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+          <div class="prod-icon">💬</div>
+          <span class="badge badge-live"><span class="live-dot"></span> Live</span>
+        </div>
+        <div class="prod-name">ChatLens</div>
+        <p class="prod-desc">AI-powered chat and contextual analysis tool by @hmgtechnologies. Intelligent conversation layer for business and data contexts — zero AI API cost model.</p>
+        <div class="prod-feature"><span class="pf-check">✓</span> AI-augmented conversation interface</div>
+        <div class="prod-feature"><span class="pf-check">✓</span> Zero recurring API cost</div>
+        <div class="prod-links" style="margin-top:1rem;">
+          <a href="https://hmgtechnologies-chatlens.vercel.app/" class="prod-link primary" target="_blank">↗ Open ChatLens</a>
+          <a href="https://github.com/hmgtechnologies/chatlens" class="prod-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <!-- Simulator Suite -->
+      <div class="prod-card aos" data-aos="slide-right" data-delay="160">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+          <div class="prod-icon">🛠️</div>
+          <span class="badge badge-live"><span class="live-dot"></span> 11 Tools Live</span>
+        </div>
+        <div class="prod-name">Data Tool Simulator Suite</div>
+        <p class="prod-desc">11 browser-based simulators — MS Excel, Power BI, Tableau, SQL Server, PgAdmin, VS Code, Azure, DuckDB, MySQL, ChatLens. Zero installation. Zero licence.</p>
+        <div class="prod-feature"><span class="pf-check">✓</span> Works on any device with a browser</div>
+        <div class="prod-feature"><span class="pf-check">✓</span> Ideal for training and onboarding</div>
+        <div class="prod-links" style="margin-top:1rem;">
+          <a href="products.html#simulators" class="prod-link primary">View All 11 Simulators</a>
+          <a href="contact.html#enquire"     class="prod-link">Licence for Training</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category count tiles -->
+    <div class="cat-tiles" style="margin-top:1.2rem;">
+      <a href="products.html#edtech"      class="cat-tile" style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);" onmouseover="this.style.borderColor='rgba(16,185,129,.5)'" onmouseout="this.style.borderColor='rgba(16,185,129,.2)'"><div class="cat-num" style="color:var(--green);">16</div><div class="cat-lbl">🏫 EdTech Tools &amp; LMS Platforms</div></a>
+      <a href="products.html#ml-models"   class="cat-tile" style="background:var(--blue-glow);border:1px solid rgba(14,165,233,.2);"    onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">7</div><div class="cat-lbl">📊 ML / Data Science Models</div></a>
+      <a href="products.html#simulators"  class="cat-tile" style="background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.2);" onmouseover="this.style.borderColor='rgba(34,211,238,.5)'" onmouseout="this.style.borderColor='rgba(34,211,238,.2)'"><div class="cat-num" style="color:var(--cyan);">11</div><div class="cat-lbl">🛠️ DataTech Simulators</div></a>
+      <a href="products.html#faithtech"   class="cat-tile" style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);" onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">✝️</div><div class="cat-lbl">✝️ FaithTech Projects</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY HMG TECHNOLOGIES ════════════════════════════════════════════ -->
+<section id="why" style="background:var(--bg2);" aria-labelledby="why-h2">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title" id="why-h2">What Makes HMG Technologies <em>Different</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">Every Nigerian tech company says they build for Nigeria. Here is specifically how — and why it's verifiable with live links.</p>
+    <div class="why-grid">
+      <div class="why-card aos" data-aos="fade"><div class="why-icon">🧠</div><div class="why-title">AI-Augmented by Method</div><p class="why-desc">AI augmentation is our core working method. It's how we deliver more than traditional development budgets allow — without cutting corners on quality.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="80"><div class="why-icon">🇳🇬</div><div class="why-title">Built for Nigerian Realities</div><p class="why-desc">Slow connections, low-end devices, limited budgets — every tool we build accounts for these realities. Designed for Nigeria, not adapted for it.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="160"><div class="why-icon">📊</div><div class="why-title">Data-First Thinking</div><p class="why-desc">Our founder spent 15+ years watching where understanding fails. We ask the question behind the question before writing a single line of code.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="240"><div class="why-icon">💰</div><div class="why-title">Cost-Effective by Principle</div><p class="why-desc">CBT Pro was built with ₦0. That discipline is not an exception — it is how we work. We find the most efficient path to a genuinely working solution.</p></div>
+      <div class="why-card aos" data-aos="fade"><div class="why-icon">✅</div><div class="why-title">Proven, Not Promised</div><p class="why-desc">34 deployed projects. Real students. Real businesses. Real data. Live links, documented metrics — including failures and fixes. No performance.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="80"><div class="why-icon">🤝</div><div class="why-title">Partnership, Not Just Delivery</div><p class="why-desc">We don't hand you a tool and disappear. We train your team, document everything clearly, and remain available. We want the tools to be genuinely used.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="160"><div class="why-icon">⚡</div><div class="why-title">Fast Turnaround</div><p class="why-desc">AI augmentation compresses timelines. Clear thinking and the right tools mean we deliver faster — without compromising on what matters.</p></div>
+      <div class="why-card aos" data-aos="fade" data-delay="240"><div class="why-icon">✝️</div><div class="why-title">Values-Driven</div><p class="why-desc">His Marvellous Grace is not a name — it is a conviction. Integrity, authentic service, and community impact are not aspirational. They are operational.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW WE WORK ════════════════════════════════════════════════════ -->
+<section id="process" style="background:var(--bg);" aria-labelledby="process-h2">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title" id="process-h2">From Problem to <em>Deployed Solution</em></h2>
+    <p class="section-sub" style="margin-bottom:3.5rem;">A clear, repeatable process that gets you from "we have a problem" to "we have a working tool" — without the confusion, delays, or hidden costs.</p>
+    <div class="process-steps">
+      <div class="ps-item aos" data-aos="zoom"><div class="ps-num">01</div><div class="ps-title">Understand the Problem</div><p class="ps-desc">We start with a conversation. We ask the question behind the question — what is the real problem, and what would a genuinely useful solution look like?</p></div>
+      <div class="ps-item aos" data-aos="zoom" data-delay="80"><div class="ps-num">02</div><div class="ps-title">Scope & Propose</div><p class="ps-desc">We define scope clearly, recommend the right approach, and give you a transparent cost and timeline — before any work begins.</p></div>
+      <div class="ps-item aos" data-aos="zoom" data-delay="160"><div class="ps-num">03</div><div class="ps-title">Build with AI Leverage</div><p class="ps-desc">We build using our AI-Augmented Development method — clear thinking + AI leverage = faster delivery with quality intact.</p></div>
+      <div class="ps-item aos" data-aos="zoom" data-delay="240"><div class="ps-num">04</div><div class="ps-title">Test & Refine</div><p class="ps-desc">You test with real users in your context. We refine based on honest feedback. No tool leaves our hands without working under your actual conditions.</p></div>
+      <div class="ps-item aos" data-aos="zoom" data-delay="320"><div class="ps-num">05</div><div class="ps-title">Deploy & Train</div><p class="ps-desc">We deploy, document, and train your team. The tool must be genuinely understood by the people using it — not just handed over and abandoned.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIAL CAROUSEL (NEW v2) ═══════════════════════════════════ -->
+<section id="testimonials" style="background:var(--bg2);" aria-labelledby="testi-h2">
+  <div class="section-inner">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title" id="testi-h2">Real Feedback From <em>Real Users</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">From teachers and school administrators to data science colleagues — what people who have actually used our tools say.</p>
+
+    <!-- Carousel wrapper (NEW v2) — JS in main.js handles auto-play, swipe, dots -->
+    <div class="carousel-wrap" aria-label="Testimonials carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">I have seen many free exam tools for Nigerian schools. Most are broken or stop working when it matters. CBT Pro is genuinely different. My students completed their mock exams without a single technical issue. That alone is remarkable.</p>
+            <div class="testi-author"><div class="testi-av">AO</div><div><div class="testi-name">Adeyemi O.</div><div class="testi-role">STEM Teacher · Lagos Secondary School</div></div></div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">What stands out about the tools from HMG Technologies is the honesty. Every project is documented — including the fixes, the failures, and the real metrics. That is what serious, trustworthy technology development looks like.</p>
+            <div class="testi-author"><div class="testi-av">KN</div><div><div class="testi-name">Kunle N.</div><div class="testi-role">Data Science Peer · 3MTT Programme</div></div></div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">The data tool simulators are exactly what our students needed. No installation, no cost, no barriers. They could work through SQL and Power BI exercises from any device. It solved a real training problem for us.</p>
+            <div class="testi-author"><div class="testi-av">FA</div><div><div class="testi-name">Funke A.</div><div class="testi-role">Training Coordinator · Lagos</div></div></div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">Mr Adewale builds with genuine care for the Nigerian context. The CBT system accounts for slow internet, low-end devices, and real classroom chaos. That level of contextual thinking is rare in Nigerian tech.</p>
+            <div class="testi-author"><div class="testi-av">BO</div><div><div class="testi-name">Biodun O.</div><div class="testi-role">School Administrator · Ogun State</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="car-btn car-prev" aria-label="Previous testimonial">←</button>
+        <div class="car-dots" role="tablist" aria-label="Testimonial indicators"></div>
+        <button class="car-btn car-next" aria-label="Next testimonial">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BANNER ══════════════════════════════════════════════════════ -->
+<section style="background:var(--bg);padding:3rem 2rem;">
+  <div class="section-inner">
+    <div class="cta-banner aos" data-aos="zoom">
+      <h2>Have a Problem That Needs a Digital Solution?</h2>
+      <p>School, business, NGO, or church — if you have a real problem and want a genuine conversation about solving it digitally, we are ready. No pressure. No jargon.</p>
+      <div class="cta-btns">
+        <a href="contact.html#enquire" class="btn btn-white">Start a Conversation</a>
+        <a href="https://wa.me/2348100866322" class="btn btn-white-ol" target="_blank">💬 WhatsApp Us</a>
+        <a href="products.html"        class="btn btn-white-ol">Browse Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT SECTION ════════════════════════════════════════════════ -->
+<section id="contact" style="background:var(--bg2);" aria-labelledby="contact-h2">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title" id="contact-h2">Let Us Build <em>Something Together</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">School administrator, business owner, NGO director, church leader, or partner — we want to hear from you.</p>
+    <div class="contact-grid">
+      <div class="aos" data-aos="slide-left">
+        <div style="font-size:1.1rem;font-weight:800;margin-bottom:1.5rem;">Reach Us Directly</div>
+        <div class="ci-row"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp — Fastest Response</div><div class="ci-val"><a href="https://wa.me/2348100866322">+234 810 086 6322</a></div></div></div>
+        <div class="ci-row"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+2349077907677">+234 907 790 7677</a></div></div></div>
+        <div class="ci-row"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:buildingmyictcareer@gmail.com">buildingmyictcareer@gmail.com</a></div></div></div>
+        <div class="ci-row"><div class="ci-icon">🐙</div><div><div class="ci-label">GitHub</div><div class="ci-val"><a href="https://github.com/hmgtechnologies" target="_blank">github.com/hmgtechnologies</a></div></div></div>
+        <div class="ci-row"><div class="ci-icon">🌐</div><div><div class="ci-label">Parent Brand</div><div class="ci-val"><a href="https://hmgconcepts.pages.dev" target="_blank">hmgconcepts.pages.dev</a></div></div></div>
+        <div class="ci-row"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val" style="color:var(--text2);">Lagos / Ogun State, Nigeria · Remote Welcome</div></div></div>
+      </div>
+      <div class="contact-form-card aos" data-aos="slide-right" id="enquire">
+        <div style="font-size:1rem;font-weight:800;margin-bottom:1.5rem;">Send an Enquiry</div>
+        <!-- IMPORTANT: Replace your-hmgtech-form-id with your real Formspree ID -->
+        <form id="contact-form" action="https://formspree.io/f/your-hmgtech-form-id" method="POST" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="cf-name">Your Name *</label>
+            <input id="cf-name" type="text" name="name" class="form-input" placeholder="Full name" required/>
+            <div class="form-error">This field is required.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-email">Email Address *</label>
+            <input id="cf-email" type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+            <div class="form-error">Please enter a valid email address.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-org">Organisation / School / Business</label>
+            <input id="cf-org" type="text" name="organisation" class="form-input" placeholder="Where you work or represent"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-service">Service Needed</label>
+            <select id="cf-service" name="service" class="form-select">
+              <option value="">Select a service…</option>
+              <option>CBT System for my School</option>
+              <option>Data Dashboard / Analytics</option>
+              <option>Custom Web Application</option>
+              <option>ML / AI Solution</option>
+              <option>Data Tool Simulator (Training)</option>
+              <option>Digital Skills Workshop</option>
+              <option>EdTech Partnership</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-msg">Your Problem or Need *</label>
+            <textarea id="cf-msg" name="message" class="form-textarea" placeholder="Describe your problem in plain language. The more specific, the better." required maxlength="1000"></textarea>
+            <!-- char-counter injected automatically by main.js initCharCounters() -->
+            <div class="form-error">Please provide at least 20 characters.</div>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+          <div id="form-message" role="alert"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">HMG Technologies</div>
+        <p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations. A subsidiary of HMG Concepts (His Marvellous Grace Educational Consult).</p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" aria-label="LinkedIn">💼</a>
+          <a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" aria-label="GitHub @hmgtechnologies">🐙</a>
+          <a href="https://youtube.com/@hmgconcepts"   class="footer-social" target="_blank" aria-label="YouTube">📺</a>
+          <a href="https://x.com/cssadewale"           class="footer-social" target="_blank" aria-label="X/Twitter">🐦</a>
+          <a href="https://wa.me/2348100866322"         class="footer-social" target="_blank" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-links-list">
+          <a href="index.html">Home</a><a href="services.html">Services</a>
+          <a href="products.html">Products</a><a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">HMG Concepts Family</div>
+        <div class="footer-links-list">
+          <a href="https://hmgconcepts.pages.dev" target="_blank">HMG Concepts ↗</a>
+          <a href="https://hmgconcepts.pages.dev" target="_blank">HMG Academy ↗</a>
+          <a href="https://cssadewale.pages.dev"  target="_blank">cssadewale ↗</a>
+          <a href="#">HMG Gospel</a><a href="#">HMG Media</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">GitHub Orgs</div>
+        <div class="footer-links-list">
+          <a href="https://github.com/hmgtechnologies" target="_blank">@hmgtechnologies ↗</a>
+          <a href="https://github.com/hmgacademyhub"   target="_blank">@hmgacademyhub ↗</a>
+          <a href="https://github.com/cssadewale"      target="_blank">@cssadewale ↗</a>
+          <a href="https://github.com/hmgospel"        target="_blank">@hmgospel ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · Adewale Samson Adeagbo · All Rights Reserved</div>
+      <div class="footer-bottom-tagline">Built with AI leverage. Grounded in data. Solving real Nigerian problems.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

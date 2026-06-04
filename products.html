@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Products | HMG Technologies — Live AI-Augmented Digital Tools</title>
+  <meta name="description" content="HMG Technologies live products: CBT Pro, ChatLens, 11 Data Tool Simulators, and a full data science LMS suite — all live, all free or cost-effective, all built for Nigeria."/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/products.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* Filter bar */
+    .filter-bar { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .filter-chip { font-size:.75rem; font-weight:600; padding:.36rem .95rem; border-radius:50px; border:1px solid var(--border); background:transparent; color:var(--text2); cursor:pointer; transition:all var(--tr); font-family:var(--ff); }
+    .filter-chip:hover { border-color:var(--border2); color:var(--text); }
+    .filter-chip.active { background:var(--blue-glow); border-color:rgba(14,165,233,.42); color:var(--blue); }
+
+    /* Product section headers */
+    .prod-sec-hdr { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; justify-content:space-between; }
+    .psh-left { display:flex; align-items:center; gap:1rem; }
+    .psh-icon { font-size:1.6rem; }
+    .psh-title { font-size:1.1rem; font-weight:800; }
+    .psh-sub   { font-size:.78rem; color:var(--text2); margin-top:.15rem; }
+    .psh-count { font-size:.72rem; background:var(--bg4); border:1px solid var(--border); padding:.28rem .85rem; border-radius:50px; color:var(--text2); }
+
+    /* Flagship card */
+    .flagship-card {
+      background:linear-gradient(135deg,rgba(14,165,233,.06) 0%,var(--card) 55%);
+      border:1px solid rgba(14,165,233,.28); border-radius:var(--radius-xl);
+      padding:2.2rem; display:grid; grid-template-columns:1fr 340px; gap:2rem; align-items:start; margin-bottom:2rem;
+    }
+    .flagship-card:hover { border-color:rgba(14,165,233,.5); box-shadow:var(--shadow-blue); }
+    .fc-icon { width:52px; height:52px; border-radius:13px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1rem; }
+    .fc-name { font-size:1.4rem; font-weight:900; margin-bottom:.3rem; }
+    .fc-tagline { font-size:.84rem; color:var(--muted); font-style:italic; margin-bottom:1rem; }
+    .fc-desc { font-size:.86rem; color:var(--text2); line-height:1.8; margin-bottom:1.2rem; }
+    .fc-features-title { font-size:.7rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.7rem; }
+    .fc-feature { display:flex; align-items:flex-start; gap:.55rem; font-size:.82rem; color:var(--text2); margin-bottom:.4rem; }
+    .fc-check { color:var(--blue); flex-shrink:0; }
+    .fc-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.3rem; }
+    .fc-links { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .fc-link { font-size:.78rem; font-weight:600; color:var(--blue); padding:.35rem .85rem; border:1px solid rgba(14,165,233,.3); border-radius:6px; transition:all var(--tr); display:inline-flex; align-items:center; gap:.3rem; }
+    .fc-link:hover { background:var(--blue-glow); }
+    .fc-link.primary { background:var(--blue-glow); }
+
+    /* Flagship terminal panel */
+    .fc-panel { background:var(--bg3); border-radius:var(--radius-lg); padding:1.3rem; font-family:var(--ff-mono); font-size:.76rem; }
+    .fc-panel-label { font-size:.62rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.9rem; }
+    .fp-row { display:flex; justify-content:space-between; align-items:center; padding:.28rem 0; border-bottom:.5px solid var(--border); }
+    .fp-row:last-child { border-bottom:none; }
+    .fp-key { color:var(--text2); }
+    .fp-val { color:var(--blue); font-weight:700; }
+    .fp-val.g { color:var(--green); }
+
+    /* Simulator grid */
+    .sim-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1rem; }
+    .sim-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.4rem; display:flex; flex-direction:column; transition:all var(--tr); }
+    .sim-card:hover { border-color:rgba(14,165,233,.4); transform:translateY(-3px); box-shadow:var(--shadow-blue); }
+    .sim-icon { font-size:1.4rem; margin-bottom:.7rem; }
+    .sim-name { font-size:.9rem; font-weight:800; color:var(--blue); margin-bottom:.4rem; }
+    .sim-desc { font-size:.78rem; color:var(--text2); line-height:1.65; flex:1; margin-bottom:.9rem; }
+    .sim-links { display:flex; gap:.5rem; }
+    .sim-link { font-size:.72rem; font-weight:700; border:1px solid; padding:.28rem .65rem; border-radius:5px; transition:all var(--tr); text-align:center; flex:1; }
+    .sl-live { color:var(--blue); border-color:rgba(14,165,233,.3); }
+    .sl-live:hover { background:var(--blue-glow); }
+    .sl-gh { color:var(--muted); border-color:var(--border); }
+    .sl-gh:hover { color:var(--text2); border-color:var(--border2); }
+
+    /* Regular product cards */
+    .prod-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.4rem; }
+    .prod-card-sm { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.7rem; display:flex; flex-direction:column; transition:all var(--tr); }
+    .prod-card-sm:hover { border-color:rgba(14,165,233,.4); transform:translateY(-3px); box-shadow:var(--shadow-blue); }
+    .pc-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.9rem; }
+    .pc-icon { width:46px; height:46px; border-radius:12px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
+    .pc-name { font-size:1rem; font-weight:800; margin-bottom:.4rem; }
+    .pc-desc { font-size:.83rem; color:var(--text2); line-height:1.72; flex:1; margin-bottom:1.1rem; }
+    .pc-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:1rem; }
+    .pc-links { display:flex; gap:.55rem; flex-wrap:wrap; margin-top:auto; }
+    .pc-link { font-size:.75rem; font-weight:600; color:var(--blue); padding:.32rem .8rem; border:1px solid rgba(14,165,233,.3); border-radius:6px; transition:all var(--tr); }
+    .pc-link:hover { background:var(--blue-glow); }
+    .pc-link.primary { background:var(--blue-glow); }
+
+    @media(max-width:900px){ .flagship-card{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="nav-brand"><img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/><div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a><a href="contact.html#enquire" class="nav-cta">Get a Quote</a></div>
+  <button class="nav-burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-mobile" id="nav-mobile"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a><a href="contact.html#enquire">Get a Quote</a></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> → <span>Products</span></div>
+    <div class="section-label">Live Tools</div>
+    <h1 class="section-title">Products Already <em>Working in the Real World</em></h1>
+    <p class="section-sub" style="margin-bottom:1.5rem;">These are not prototypes or demos. Every product listed here is live, deployed, and being used by real people right now. Built with AI augmentation. Documented honestly. Zero hidden costs.</p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
+      <span class="badge badge-live"><span class="live-dot"></span> All products live</span>
+      <span class="badge badge-blue">Free or cost-effective</span>
+      <span class="badge badge-new">Nigerian-context built</span>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1280px;margin:0 auto;padding:3rem 2rem;">
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <button class="filter-chip active" data-filter="all">All Products</button>
+    <button class="filter-chip" data-filter="edtech">🏫 EdTech</button>
+    <button class="filter-chip" data-filter="simulator">🛠️ Simulators</button>
+    <button class="filter-chip" data-filter="ai">🤖 AI Tools</button>
+    <button class="filter-chip" data-filter="data">📊 Data Tools</button>
+  </div>
+
+  <!-- FLAGSHIP: CBT PRO -->
+  <div style="margin-bottom:4rem;" id="cbt-pro">
+    <div class="prod-sec-hdr">
+      <div class="psh-left"><div class="psh-icon">🏫</div><div><div class="psh-title" style="color:var(--green);">Flagship Product — Live in Nigerian Classrooms Today</div><div class="psh-sub">EdTech · Full-Stack · AI-Augmented Build · @hmgacademyhub ecosystem</div></div></div>
+      <span class="psh-count" style="color:var(--green);border-color:rgba(16,185,129,.3);">● LIVE</span>
+    </div>
+    <div class="flagship-card">
+      <div>
+        <div class="fc-icon">🏫</div>
+        <div class="fc-name">CBT Pro</div>
+        <div class="fc-tagline">"Built by a tutor, for tutors. Not with web dev skills — with clear thinking and AI leverage."</div>
+        <p class="fc-desc">CBT Pro is a full Computer-Based Testing platform for Nigerian schools — built entirely on an Android tablet using Acode editor, with zero budget, zero web development background, and zero cost to schools. It is the proof of concept that defines what AI-Augmented Solutions Development actually means in practice.</p>
+        <div class="fc-features-title">Key Features</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> 7-column CSV question upload — no manual entry required</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Timed exam sessions with countdown and auto-submit</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Per-student question AND option randomisation (anti-copy)</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Anti-cheat tab-switch detection with configurable tolerance</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Flag-for-review — revisit questions before final submit</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Auto-marking + result certificate with WhatsApp share</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> 4-tab teacher analytics: Overview · Question Analysis · Student Comparison · Trends</div>
+        <div class="fc-feature"><span class="fc-check">✓</span> Optional Gemini AI explanation per question</div>
+        <div class="fc-tags" style="margin-top:.9rem;">
+          <span class="tag tag-blue">HTML5</span><span class="tag tag-blue">CSS3</span><span class="tag tag-blue">Vanilla JS</span>
+          <span class="tag tag-green">Supabase + RLS</span><span class="tag">Vercel</span><span class="tag">Gemini (optional)</span>
+        </div>
+        <div class="fc-links">
+          <a href="https://cbtsystem-hmgacademy.vercel.app/" class="fc-link primary" target="_blank" rel="noopener">↗ Live Platform</a>
+          <a href="contact.html#enquire" class="fc-link">Deploy for My School</a>
+          <a href="https://github.com/hmgacademyhub" class="fc-link" target="_blank" rel="noopener">GitHub @hmgacademyhub</a>
+        </div>
+      </div>
+      <div class="fc-panel">
+        <div class="fc-panel-label">CBT Pro — Technical Snapshot</div>
+        <div class="fp-row"><span class="fp-key">Status</span><span class="fp-val g">● LIVE in Schools</span></div>
+        <div class="fp-row"><span class="fp-key">Budget used</span><span class="fp-val">₦ 0</span></div>
+        <div class="fp-row"><span class="fp-key">Built on</span><span class="fp-val">Android Tablet</span></div>
+        <div class="fp-row"><span class="fp-key">Backend</span><span class="fp-val">Supabase + RLS</span></div>
+        <div class="fp-row"><span class="fp-key">Auth</span><span class="fp-val">Supabase Auth</span></div>
+        <div class="fp-row"><span class="fp-key">Cost to schools</span><span class="fp-val g">FREE</span></div>
+        <div class="fp-row"><span class="fp-key">Analytics tabs</span><span class="fp-val">4</span></div>
+        <div class="fp-row"><span class="fp-key">AI integration</span><span class="fp-val">Gemini (opt-in)</span></div>
+        <div class="fp-row"><span class="fp-key">Deployment</span><span class="fp-val">Vercel</span></div>
+        <div class="fp-row"><span class="fp-key">Method</span><span class="fp-val">AI-Augmented Dev</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI TOOL: CHATLENS -->
+  <div style="margin-bottom:4rem;" id="chatlens">
+    <div class="prod-sec-hdr">
+      <div class="psh-left"><div class="psh-icon">🤖</div><div><div class="psh-title" style="color:var(--blue);">AI-Powered Tool · @hmgtechnologies</div><div class="psh-sub">Intelligent chat and contextual analysis — built without AI API costs</div></div></div>
+      <span class="psh-count" style="color:var(--blue);">Live</span>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card-sm aos" data-category="ai">
+        <div class="pc-top"><div class="pc-icon">💬</div><span class="badge badge-live"><span class="live-dot"></span> Live</span></div>
+        <div class="pc-name">ChatLens</div>
+        <p class="pc-desc">An AI-powered chat and lens tool by HMG Technologies. Applying AI-augmented development for intelligent conversation, data interpretation, and contextual analysis — without reliance on expensive API subscriptions. Built for businesses and teams that need a smart, cost-effective communication and analysis layer.</p>
+        <div class="pc-tags"><span class="tag tag-blue">AI-Augmented</span><span class="tag tag-cyan">Zero API Cost</span><span class="tag">Chat Interface</span><span class="tag">@hmgtechnologies</span></div>
+        <div class="pc-links">
+          <a href="https://hmgtechnologies-chatlens.vercel.app/" class="pc-link primary" target="_blank" rel="noopener">↗ Open ChatLens</a>
+          <a href="https://github.com/hmgtechnologies/chatlens" class="pc-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA TOOL SIMULATORS -->
+  <div style="margin-bottom:4rem;" id="simulators">
+    <div class="prod-sec-hdr">
+      <div class="psh-left"><div class="psh-icon">🛠️</div><div><div class="psh-title" style="color:var(--blue);">Data Tool Simulator Suite</div><div class="psh-sub">11 interactive simulators · Zero install · Zero licence cost · Browser-based · @cssadewale</div></div></div>
+      <span class="psh-count">11 Tools Live</span>
+    </div>
+    <p style="font-size:.86rem;color:var(--text2);max-width:720px;margin-bottom:1.8rem;line-height:1.75;">Browser-based simulations of professional data and development environments. Designed for training programmes, staff onboarding, and skills development — without the need for local installation, paid licences, or high-spec hardware. Works on any device with a browser.</p>
+    <div class="sim-grid">
+      <div class="sim-card aos" data-category="simulator"><div class="sim-icon">📊</div><div class="sim-name">MS Excel Simulator</div><p class="sim-desc">Practice spreadsheet skills, formulas, pivot tables, and data analysis in a browser-based Excel-like environment.</p><div class="sim-links"><a href="https://cssadewale-msexcel-stimulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/msexcel-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="40" data-category="simulator"><div class="sim-icon">🐘</div><div class="sim-name">PgAdmin Simulator</div><p class="sim-desc">Browser-based PostgreSQL/PgAdmin interface for practising database management and SQL queries.</p><div class="sim-links"><a href="https://cssadewale-pgadmin-stimulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/pgadmin-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="80" data-category="simulator"><div class="sim-icon">🗄️</div><div class="sim-name">MS SQL Server Simulator</div><p class="sim-desc">Simulate the SQL Server Management Studio for T-SQL practice — without needing a Windows machine or SQL Server licence.</p><div class="sim-links"><a href="https://cssadewale-ms-sqlserver.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/ms-sqlserver" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="120" data-category="simulator"><div class="sim-icon">🐬</div><div class="sim-name">MySQL Workbench Simulator</div><p class="sim-desc">Practice MySQL queries and database design in a simulated Workbench environment — any browser, any device.</p><div class="sim-links"><a href="https://cssadewale-mysql-workbench.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/mysql-workbench" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-category="simulator"><div class="sim-icon">💻</div><div class="sim-name">VS Code Simulator</div><p class="sim-desc">Browser-based VS Code-like IDE for practising code editing, file management, and development workflows.</p><div class="sim-links"><a href="https://cssadewale-vscode-stimulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/vscode-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="40" data-category="simulator"><div class="sim-icon">☁️</div><div class="sim-name">Azure Data Studio Simulator</div><p class="sim-desc">Simulate Azure Data Studio for SQL and cloud data management practice in a browser-based environment.</p><div class="sim-links"><a href="https://cssadewale-azure-datastudio.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/azure-datastudio" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="80" data-category="simulator"><div class="sim-icon">🦆</div><div class="sim-name">DuckDB Simulator</div><p class="sim-desc">Practice DuckDB — the fast in-process analytical database — in a browser-based simulation environment.</p><div class="sim-links"><a href="https://cssadewale.github.io/duckdb-stimulator/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/duckdb-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="120" data-category="simulator data"><div class="sim-icon">📉</div><div class="sim-name">Power BI Simulator</div><p class="sim-desc">Practice Power BI dashboard building and visual analytics without a licence or local installation.</p><div class="sim-links"><a href="https://cssadewale-powerbi-stimulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/powerbi-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-category="simulator data"><div class="sim-icon">📐</div><div class="sim-name">Tableau Simulator</div><p class="sim-desc">Simulate the Tableau interface for visual analytics and chart-building practice — no Tableau licence needed.</p><div class="sim-links"><a href="https://cssadewale-tableau-stimulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/tableau-stimulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="40" data-category="simulator"><div class="sim-icon">🔷</div><div class="sim-name">Azure Simulator</div><p class="sim-desc">Practice Azure cloud platform navigation and cloud data service workflows in a browser-based simulation.</p><div class="sim-links"><a href="https://cssadewale-azure-simulator.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/cssadewale/azure-simulator" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+      <div class="sim-card aos" data-delay="80" data-category="ai"><div class="sim-icon">💬</div><div class="sim-name">ChatLens</div><p class="sim-desc">AI-powered chat and analysis tool by @hmgtechnologies. Intelligent conversation layer for business and data contexts.</p><div class="sim-links"><a href="https://hmgtechnologies-chatlens.vercel.app/" class="sim-link sl-live" target="_blank" rel="noopener">↗ Live</a><a href="https://github.com/hmgtechnologies/chatlens" class="sim-link sl-gh" target="_blank" rel="noopener">GitHub</a></div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(34,211,238,.05));border:1px solid rgba(14,165,233,.2);border-radius:var(--radius-xl);padding:3rem;text-align:center;margin-top:2rem;" class="aos">
+    <h3 style="font-size:1.4rem;font-weight:800;margin-bottom:.6rem;">Need a Custom Product Built?</h3>
+    <p style="font-size:.88rem;color:var(--text2);max-width:500px;margin:0 auto 1.5rem;line-height:1.75;">If you have a specific workflow problem that needs a bespoke tool, we build custom. Tell us the problem — we'll tell you what's possible and at what cost.</p>
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html#enquire" class="btn btn-blue">Discuss a Custom Build</a>
+      <a href="https://wa.me/2348100866322" class="btn btn-outline" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">HMG Technologies</div><p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations.</p><div class="footer-socials"><a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" rel="noopener">💼</a><a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" rel="noopener">🐙</a><a href="https://youtube.com/@hmgconcepts" class="footer-social" target="_blank" rel="noopener">📺</a><a href="https://wa.me/2348100866322" class="footer-social" target="_blank" rel="noopener">💬</a></div></div>
+    <div><div class="footer-col-title">Navigation</div><div class="footer-links-list"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div></div>
+    <div><div class="footer-col-title">HMG Family</div><div class="footer-links-list"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Concepts ↗</a><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Academy ↗</a><a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">cssadewale ↗</a></div></div>
+    <div><div class="footer-col-title">GitHub</div><div class="footer-links-list"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">@hmgtechnologies ↗</a><a href="https://github.com/cssadewale" target="_blank" rel="noopener">@cssadewale ↗</a><a href="https://github.com/hmgacademyhub" target="_blank" rel="noopener">@hmgacademyhub ↗</a></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · All Rights Reserved</div><div class="footer-bottom-tagline">Built with AI leverage. Solving real Nigerian problems.</div></div>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact | HMG Technologies — Start a Conversation</title>
+  <meta name="description" content="Contact HMG Technologies — get a quote, enquire about CBT Pro, discuss a custom build, or book a digital skills workshop. Lagos, Nigeria. WhatsApp: +234 810 086 6322."/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/contact.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    .contact-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-xl); padding:2rem; margin-bottom:1.5rem; }
+    .ci-grid { display:flex; flex-direction:column; gap:1.2rem; }
+    .ci-row { display:flex; gap:1rem; align-items:flex-start; }
+    .ci-icon { width:42px; height:42px; border-radius:10px; background:var(--blue-glow); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .ci-label { font-size:.67rem; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; margin-bottom:.2rem; font-weight:600; }
+    .ci-val   { font-size:.9rem; font-weight:600; color:var(--blue); }
+    .ci-val a { color:inherit; }
+    .ci-note  { font-size:.74rem; color:var(--muted); margin-top:.1rem; }
+
+    /* Service enquiry chips */
+    .service-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0; }
+    .sch { font-size:.76rem; padding:.35rem .9rem; border-radius:50px; border:1px solid var(--border); background:transparent; color:var(--text2); cursor:pointer; transition:all var(--tr); font-family:var(--ff); }
+    .sch:hover, .sch.selected { border-color:var(--blue); color:var(--blue); background:var(--blue-glow); }
+
+    /* FAQ */
+    .faq-list { display:flex; flex-direction:column; gap:.8rem; }
+    .faq-item { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+    .faq-q { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.3rem; cursor:pointer; font-size:.88rem; font-weight:700; gap:.8rem; transition:background var(--tr); }
+    .faq-q:hover { background:var(--bg4); }
+    .faq-chevron { color:var(--blue); font-size:.9rem; transition:transform var(--tr); flex-shrink:0; }
+    .faq-item.open .faq-chevron { transform:rotate(180deg); }
+    .faq-a { display:none; padding:0 1.3rem 1.1rem; font-size:.84rem; color:var(--text2); line-height:1.75; border-top:1px solid var(--border); padding-top:1rem; }
+    .faq-item.open .faq-a { display:block; }
+    .faq-a a { color:var(--blue); }
+
+    /* WhatsApp CTA card */
+    .wa-card { background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(16,185,129,.04)); border:1px solid rgba(16,185,129,.25); border-radius:var(--radius-xl); padding:2rem; text-align:center; }
+    .wa-card h3 { font-size:1rem; font-weight:800; margin-bottom:.5rem; }
+    .wa-card p  { font-size:.84rem; color:var(--text2); margin-bottom:1.3rem; line-height:1.7; }
+
+    #form-message { display:none; font-size:.82rem; padding:.7rem; border-radius:6px; margin-top:.9rem; }
+    @media(max-width:900px){ .contact-layout{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="nav-brand"><img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/><div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a><a href="contact.html#enquire" class="nav-cta">Get a Quote</a></div>
+  <button class="nav-burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-mobile" id="nav-mobile"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> → <span>Contact</span></div>
+    <div class="section-label">Get in Touch</div>
+    <h1 class="section-title">Let Us Solve <em>Your Problem Together</em></h1>
+    <p class="section-sub" style="margin-bottom:1.5rem;">Whether you are a school administrator, business owner, NGO director, church leader, or recruiter — if you have a real problem and want a genuine conversation about solving it digitally, we are ready. No pressure. No jargon.</p>
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
+      <span class="badge badge-live"><span class="live-dot"></span> Typically responds within 24 hours</span>
+      <span class="badge badge-blue">WhatsApp is fastest</span>
+    </div>
+  </div>
+</div>
+
+<section style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="contact-layout">
+
+      <!-- LEFT: Contact info + FAQ -->
+      <div>
+        <div class="contact-card">
+          <div style="font-size:1rem;font-weight:800;margin-bottom:1.5rem;">Reach Us Directly</div>
+          <div class="ci-grid">
+            <div class="ci-row">
+              <div class="ci-icon">💬</div>
+              <div><div class="ci-label">WhatsApp — Fastest Response</div><div class="ci-val"><a href="https://wa.me/2348100866322">+234 810 086 6322</a></div><div class="ci-note">Send a message anytime — we respond same day</div></div>
+            </div>
+            <div class="ci-row">
+              <div class="ci-icon">📞</div>
+              <div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+2349077907677">+234 907 790 7677</a></div></div>
+            </div>
+            <div class="ci-row">
+              <div class="ci-icon">✉️</div>
+              <div><div class="ci-label">Tech / Partnerships Email</div><div class="ci-val"><a href="mailto:buildingmyictcareer@gmail.com">buildingmyictcareer@gmail.com</a></div></div>
+            </div>
+            <div class="ci-row">
+              <div class="ci-icon">🐙</div>
+              <div><div class="ci-label">GitHub Organisation</div><div class="ci-val"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">github.com/hmgtechnologies</a></div></div>
+            </div>
+            <div class="ci-row">
+              <div class="ci-icon">🌐</div>
+              <div><div class="ci-label">Parent Brand</div><div class="ci-val"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">hmgconcepts.pages.dev</a></div></div>
+            </div>
+            <div class="ci-row">
+              <div class="ci-icon">📍</div>
+              <div><div class="ci-label">Location</div><div class="ci-val" style="color:var(--text2);">Lagos / Ogun State, Nigeria</div><div class="ci-note">Remote engagements welcome across Nigeria and internationally</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp quick card -->
+        <div class="wa-card" style="margin-bottom:1.5rem;">
+          <div style="font-size:2rem;margin-bottom:.7rem;">💬</div>
+          <h3>Prefer to Chat First?</h3>
+          <p>Start with a WhatsApp message. Tell us your problem in plain language. We'll respond with an honest assessment of what's possible and at what cost.</p>
+          <a href="https://wa.me/2348100866322?text=Hi%20HMG%20Technologies%2C%20I%20have%20a%20problem%20I%27d%20like%20to%20discuss..." class="btn btn-green" target="_blank" rel="noopener">💬 Start WhatsApp Conversation</a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="contact-card">
+          <div style="font-size:1rem;font-weight:800;margin-bottom:1.3rem;">Frequently Asked Questions</div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFAQ(this)"><span>Is CBT Pro really free for schools?</span><span class="faq-chevron">▼</span></div>
+              <div class="faq-a">Yes. CBT Pro is completely free for schools to use. There is no licence fee, no subscription, and no hidden cost. It was built because Nigerian teachers needed it — and we wanted the barrier to be zero. What you may pay for is custom deployment support or additional features beyond the standard platform. Contact us to discuss your specific needs.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFAQ(this)"><span>How long does a custom project take?</span><span class="faq-chevron">▼</span></div>
+              <div class="faq-a">It depends entirely on the scope and complexity. Simple web tools or dashboards: 1–3 weeks. Full ML pipelines: 2–6 weeks. Complex multi-feature platforms: 4–10 weeks. We give you a transparent timeline estimate before any work begins — and we stick to it.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFAQ(this)"><span>Do you work with small budgets?</span><span class="faq-chevron">▼</span></div>
+              <div class="faq-a">Yes. We are specifically designed for Nigerian realities — and that includes limited budgets. Our AI-Augmented Development method lets us deliver more than traditional development budgets allow. Tell us what you need and what you can afford. We'll tell you honestly what's achievable within that constraint.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFAQ(this)"><span>Do you provide training after delivery?</span><span class="faq-chevron">▼</span></div>
+              <div class="faq-a">Always. We don't hand over tools without making sure your team knows how to use them. All engagements include documentation, handover training, and a post-delivery support window. We want the tools we build to be genuinely used — not abandoned because nobody understood them.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFAQ(this)"><span>Can I see live examples of your work first?</span><span class="faq-chevron">▼</span></div>
+              <div class="faq-a">Absolutely. That's exactly what our <a href="portfolio.html">Portfolio page</a> and <a href="products.html">Products page</a> are for. Every project has live links you can visit right now. No demos, no mockups — real deployed tools. Go and test them. If what you see matches what you need, let's talk.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Enquiry form -->
+      <div id="enquire">
+        <div class="contact-card">
+          <div style="font-size:1rem;font-weight:800;margin-bottom:.5rem;">Send an Enquiry</div>
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;">Tell us about your problem. The more specific, the better. We'll respond within 24 hours — or faster on WhatsApp.</p>
+          <!-- Quick service selection -->
+          <div style="font-size:.75rem;font-weight:700;color:var(--text2);margin-bottom:.5rem;">Quick select — what do you need?</div>
+          <div class="service-chips">
+            <button class="sch" onclick="selectService(this,'CBT System for my School')">🏫 CBT System</button>
+            <button class="sch" onclick="selectService(this,'Data Dashboard / Analytics')">📊 Dashboard</button>
+            <button class="sch" onclick="selectService(this,'ML / AI Solution')">🤖 ML Solution</button>
+            <button class="sch" onclick="selectService(this,'Custom Web Application')">⚡ Web App</button>
+            <button class="sch" onclick="selectService(this,'Data Tool Simulator (Training)')">🛠️ Simulator</button>
+            <button class="sch" onclick="selectService(this,'Digital Skills Workshop')">🎓 Workshop</button>
+          </div>
+          <!-- Formspree form -->
+          <form id="contact-form" action="https://formspree.io/f/your-hmgtech-form-id" method="POST" novalidate>
+            <div class="form-group"><label class="form-label">Your Name *</label><input type="text" name="name" class="form-input" placeholder="Full name" required/></div>
+            <div class="form-group"><label class="form-label">Email Address *</label><input type="email" name="email" class="form-input" placeholder="your@email.com" required/></div>
+            <div class="form-group"><label class="form-label">Phone / WhatsApp</label><input type="tel" name="phone" class="form-input" placeholder="+234 xxx xxx xxxx"/></div>
+            <div class="form-group"><label class="form-label">Organisation / Business / School</label><input type="text" name="organisation" class="form-input" placeholder="Where you work or represent"/></div>
+            <div class="form-group">
+              <label class="form-label">Service Needed *</label>
+              <select name="service" id="service-select" class="form-select" required>
+                <option value="">Select a service…</option>
+                <option>CBT System for my School</option>
+                <option>Data Dashboard / Analytics</option>
+                <option>Custom Web Application</option>
+                <option>ML / AI Solution</option>
+                <option>Data Tool Simulator (Training)</option>
+                <option>Digital Skills Workshop</option>
+                <option>CBT Lab Setup Consulting</option>
+                <option>EdTech Partnership</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Approximate Budget Range</label>
+              <select name="budget" class="form-select">
+                <option value="">Prefer not to say</option>
+                <option>Under ₦50,000</option>
+                <option>₦50,000 – ₦200,000</option>
+                <option>₦200,000 – ₦500,000</option>
+                <option>₦500,000 – ₦1,000,000</option>
+                <option>Above ₦1,000,000</option>
+                <option>Open to discussion</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Describe Your Problem or Need *</label><textarea name="message" class="form-textarea" placeholder="Tell us about your problem in plain language. The more specific, the better." maxlength="1000" What is broken, manual, or inefficient? What would a successful solution look like? The more detail you give, the better we can help." required></textarea></div>
+            <button type="submit" class="form-submit">Send Enquiry →</button>
+            <div id="form-message" role="alert"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">HMG Technologies</div><p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations.</p><div class="footer-socials"><a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" rel="noopener">💼</a><a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" rel="noopener">🐙</a><a href="https://youtube.com/@hmgconcepts" class="footer-social" target="_blank" rel="noopener">📺</a><a href="https://wa.me/2348100866322" class="footer-social" target="_blank" rel="noopener">💬</a></div></div>
+    <div><div class="footer-col-title">Navigation</div><div class="footer-links-list"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div></div>
+    <div><div class="footer-col-title">HMG Family</div><div class="footer-links-list"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Concepts ↗</a><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Academy ↗</a><a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">cssadewale ↗</a></div></div>
+    <div><div class="footer-col-title">GitHub</div><div class="footer-links-list"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">@hmgtechnologies ↗</a><a href="https://github.com/cssadewale" target="_blank" rel="noopener">@cssadewale ↗</a><a href="https://github.com/hmgacademyhub" target="_blank" rel="noopener">@hmgacademyhub ↗</a></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · All Rights Reserved</div><div class="footer-bottom-tagline">Built with AI leverage. Solving real Nigerian problems.</div></div>
+</div></footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  function toggleFAQ(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+  function selectService(btn, value) {
+    document.querySelectorAll('.sch').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const sel = document.getElementById('service-select');
+    if (sel) {
+      for (let opt of sel.options) {
+        if (opt.value === value) { sel.value = value; break; }
+      }
+    }
+  }
+</script>
+</body>
+</html>

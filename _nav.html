@@ -1,0 +1,59 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     SHARED NAV SNIPPET — copy into every page between <body> and hero
+     The announcement bar sits ABOVE the nav.
+     The theme toggle (#theme-toggle) is wired in main.js.
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ANNOUNCEMENT BAR (NEW v2)
+     Edit the message text between the <span> tags.
+     The × button dismisses it for the session (saved to sessionStorage).
+     Background colour is animated via CSS @keyframes annGradient.
+-->
+<div class="ann-bar" role="banner" aria-label="Site announcement">
+  <span>🚀 CBT Pro is now live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy it FREE for your school →</a></span>
+  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+</div>
+
+<!-- NAVIGATION
+     .nav-brand  : logo image (auto-hides if file missing) + text
+     .nav-links  : desktop links
+     #theme-toggle : dark/light mode button (wired in main.js)
+     .nav-burger : hamburger for mobile
+-->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="HMG Technologies — Home">
+      <img src="assets/images/logo.png" alt="HMG Technologies Logo"
+           class="nav-logo-img" onerror="this.style.display='none'"/>
+      <div>
+        <span class="nav-logo-text">HMG Technologies</span>
+        <span class="nav-logo-sub">subsidiary of HMG Concepts</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <!-- Theme toggle — JS reads/writes data-theme on <html> -->
+      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#enquire">💬 Get a Quote</a>
+</div>

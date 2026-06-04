@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About | HMG Technologies — Our Story, Mission & Team</title>
+  <meta name="description" content="About HMG Technologies — subsidiary of HMG Concepts. Our story, mission, values, founder profile, and the AI-Augmented Solutions Development method that drives everything we build."/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/about.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .about-grid { display:grid; grid-template-columns:1fr 300px; gap:3rem; }
+    .ch { margin-bottom:3rem; }
+    .ch-label { font-size:.7rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; display:flex; align-items:center; gap:.5rem; margin-bottom:.6rem; }
+    .ch-num { width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:.68rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .ch h2 { font-size:clamp(1.3rem,3vw,1.8rem); font-weight:800; margin-bottom:1rem; }
+    .ch h2 em { font-style:normal; color:var(--blue); }
+    .ch p { font-size:.9rem; color:var(--text2); line-height:1.85; margin-bottom:1rem; }
+    .ch p strong { color:var(--text); }
+    .ch-quote { border-left:3px solid var(--blue); padding:.9rem 1.2rem; background:rgba(14,165,233,.05); border-radius:0 10px 10px 0; font-size:.9rem; color:var(--text); font-style:italic; margin:1.5rem 0; line-height:1.72; }
+
+    /* Sidebar card */
+    .about-sidebar-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-xl); padding:1.8rem; margin-bottom:1.2rem; }
+    .sb-photo { width:80px; height:80px; border-radius:50%; border:3px solid var(--blue); background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1rem; overflow:hidden; }
+    .sb-photo img { width:100%; height:100%; object-fit:cover; }
+    .sb-name { font-size:.95rem; font-weight:800; margin-bottom:.2rem; }
+    .sb-role { font-size:.72rem; color:var(--blue); font-weight:600; margin-bottom:1rem; line-height:1.5; }
+    .sb-row { display:flex; justify-content:space-between; border-top:1px solid var(--border); padding:.55rem 0; font-size:.74rem; }
+    .sb-row-lbl { color:var(--muted); }
+    .sb-row-val { color:var(--text2); font-weight:600; text-align:right; max-width:150px; }
+    .sb-links { display:flex; flex-direction:column; gap:.4rem; margin-top:.8rem; }
+    .sb-link { font-size:.74rem; color:var(--text2); border:1px solid var(--border); padding:.35rem .8rem; border-radius:7px; transition:all var(--tr); display:flex; align-items:center; gap:.5rem; }
+    .sb-link:hover { color:var(--blue); border-color:rgba(14,165,233,.35); background:var(--blue-glow); }
+
+    /* Values grid */
+    .val-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:1.5rem 0; }
+    .val-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.3rem; transition:border-color var(--tr); }
+    .val-card:hover { border-color:rgba(14,165,233,.35); }
+    .val-icon { font-size:1.4rem; margin-bottom:.6rem; }
+    .val-title { font-size:.88rem; font-weight:700; margin-bottom:.35rem; color:var(--blue); }
+    .val-desc  { font-size:.8rem; color:var(--text2); line-height:1.65; }
+
+    /* HMG family */
+    .fam-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:1.5rem 0; }
+    .fam-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.3rem; transition:border-color var(--tr); }
+    .fam-card:hover { border-color:rgba(14,165,233,.35); }
+    .fam-icon { font-size:1.4rem; margin-bottom:.6rem; }
+    .fam-name { font-size:.9rem; font-weight:800; color:var(--blue); margin-bottom:.3rem; }
+    .fam-status { font-size:.68rem; }
+    .fam-desc { font-size:.8rem; color:var(--text2); line-height:1.6; margin:.5rem 0; }
+    .fam-gh { font-size:.7rem; color:var(--muted); font-family:var(--ff-mono); }
+    .fam-gh code { background:var(--bg4); padding:.1rem .4rem; border-radius:3px; color:var(--text2); }
+
+    @media(max-width:900px){ .about-grid{grid-template-columns:1fr;} .val-grid{grid-template-columns:1fr;} .fam-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<!-- ANNOUNCEMENT BAR (v2) -->
+<div class="ann-bar" role="banner" aria-label="Site announcement">
+  <span>🚀 CBT Pro is live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy FREE for your school →</a></span>
+  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+</div>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="HMG Technologies Home">
+      <img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#enquire">💬 Get a Quote</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> → <span>About</span></div>
+    <div class="section-label">Our Story</div>
+    <h1 class="section-title">Technology Built from <em>Real Problems</em></h1>
+    <p class="section-sub">HMG Technologies was not started because technology was trendy. It was started because real problems — in classrooms, in businesses, in communities — demanded real solutions. This is the story behind that conviction.</p>
+  </div>
+</div>
+
+<section style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <!-- SIDEBAR -->
+      <div style="order:2">
+        <div class="about-sidebar-card">
+          <div class="sb-photo">
+            <img src="assets/images/founder.jpg" alt="Adewale Samson Adeagbo" onerror="this.style.display='none';this.parentElement.innerHTML='🧑🏾‍💻'"/>
+          </div>
+          <div class="sb-name">Adewale Samson Adeagbo</div>
+          <div class="sb-role">Founder & Director · Data Lead · AI-Augmented Solutions Developer</div>
+          <div class="sb-row"><span class="sb-row-lbl">Teaching</span><span class="sb-row-val">15+ Years · JSS–SSS</span></div>
+          <div class="sb-row"><span class="sb-row-lbl">Founded HMG</span><span class="sb-row-val">2015</span></div>
+          <div class="sb-row"><span class="sb-row-lbl">Degree</span><span class="sb-row-val">B.Sc.(Ed) CS Education, LASU 2023</span></div>
+          <div class="sb-row"><span class="sb-row-lbl">Projects</span><span class="sb-row-val">34 Live Deployed</span></div>
+          <div class="sb-row"><span class="sb-row-lbl">Location</span><span class="sb-row-val">Lagos / Ogun State, NG</span></div>
+          <div class="sb-links">
+            <a href="https://cssadewale.pages.dev" class="sb-link" target="_blank" rel="noopener">🌐 Personal Portfolio</a>
+            <a href="https://linkedin.com/in/adewalesamsonadeagbo" class="sb-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+            <a href="https://github.com/cssadewale" class="sb-link" target="_blank" rel="noopener">🐙 GitHub @cssadewale</a>
+            <a href="https://github.com/hmgtechnologies" class="sb-link" target="_blank" rel="noopener">🐙 @hmgtechnologies</a>
+            <a href="https://youtube.com/@hmgconcepts" class="sb-link" target="_blank" rel="noopener">📺 YouTube @hmgconcepts</a>
+          </div>
+        </div>
+        <div class="about-sidebar-card">
+          <div style="font-size:.7rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;">HMG Technologies Stack</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem;">
+            <span class="tag tag-blue">Python</span><span class="tag tag-blue">Scikit-learn</span><span class="tag tag-blue">XGBoost</span><span class="tag tag-blue">SHAP</span><span class="tag tag-blue">FastAPI</span><span class="tag tag-blue">Streamlit</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">HTML5/CSS3/JS</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">GitHub</span><span class="tag tag-cyan">AI-Augmented Dev</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div style="order:1">
+        <div class="ch">
+          <div class="ch-label"><div class="ch-num">01</div> Our Origin</div>
+          <h2>Where <em>HMG Technologies</em> Came From</h2>
+          <p>HMG Technologies is the technology and data arm of <strong>HMG Concepts (His Marvellous Grace Educational Consult)</strong>, founded by <strong>Adewale Samson Adeagbo</strong> in 2015. What began as a one-person tutoring service grew into a conviction: that the problems visible every day in Nigerian classrooms and organisations could be solved with technology — if the right person built the right tools.</p>
+          <p>The name matters. His Marvellous Grace is not branding. It is a genuine conviction that every breakthrough arrived as a result of grace that was not engineered on our own — we just kept showing up and doing the work. That conviction shapes every decision we make.</p>
+          <div class="ch-quote">"We don't build technology for its own sake. We build it because a problem in the classroom, the boardroom, the office, or the community demands a solution." — Adewale Samson Adeagbo, Founder</div>
+        </div>
+
+        <div class="ch">
+          <div class="ch-label"><div class="ch-num">02</div> The Method</div>
+          <h2>What <em>AI-Augmented Solutions Development</em> Actually Means</h2>
+          <p>CBT Pro — our flagship product — was built on an Android tablet using Acode editor, with no laptop, no web development background, and zero budget. It is now live in Nigerian classrooms. That is the proof point that defines our working method.</p>
+          <p><strong>AI-Augmented Solutions Development</strong> means using clear thinking and AI leverage to operate competently in any technical domain — building solutions that go beyond what a single discipline, a limited budget, or a constrained environment would traditionally allow. The tool is not the skill. The clarity of thought is the skill. AI is the leverage. Together, they produce what looks like magic — and is actually just disciplined, problem-first thinking applied at scale.</p>
+          <p>This is not a marketing claim. It is a verifiable working method with 34 live deployed projects across 7 industries to demonstrate it.</p>
+        </div>
+
+        <div class="ch">
+          <div class="ch-label"><div class="ch-num">03</div> Our Values</div>
+          <h2>What We <em>Stand For</em></h2>
+          <div class="val-grid">
+            <div class="val-card"><div class="val-icon">🧩</div><div class="val-title">Problem First, Always</div><p class="val-desc">We never start with a technology. We start with a problem. If the problem is not clearly understood, no solution will be genuinely useful.</p></div>
+            <div class="val-card"><div class="val-icon">🇳🇬</div><div class="val-title">Built for Nigerian Realities</div><p class="val-desc">Slow connections, low-end devices, limited budgets. Everything we build accounts for these realities — not as exceptions, but as the primary design constraint.</p></div>
+            <div class="val-card"><div class="val-icon">📖</div><div class="val-title">Honest Documentation</div><p class="val-desc">We document what worked AND what didn't. Data leakage fixes, underperforming models, real metrics. Trust is built on honesty, not curated success stories.</p></div>
+            <div class="val-card"><div class="val-icon">💰</div><div class="val-title">Cost-Effective by Principle</div><p class="val-desc">CBT Pro was built with ₦0. That discipline is not an exception — it is how we work. The constraint is the brief, not the barrier.</p></div>
+            <div class="val-card"><div class="val-icon">🤝</div><div class="val-title">Partnership, Not Delivery</div><p class="val-desc">We don't hand you a tool and disappear. We train your team, document everything, and remain available. Tools should be understood, not just handed over.</p></div>
+            <div class="val-card"><div class="val-icon">✝️</div><div class="val-title">Faith as Foundation</div><p class="val-desc">His Marvellous Grace Educational Consult is named for a genuine conviction. Integrity, authentic service, and community impact are not aspirational — they are operational.</p></div>
+          </div>
+        </div>
+
+        <div class="ch">
+          <div class="ch-label"><div class="ch-num">04</div> The HMG Family</div>
+          <h2>Our Place in <em>HMG Concepts</em></h2>
+          <p>HMG Technologies is one of four subsidiaries of HMG Concepts — each solving a distinct problem domain:</p>
+          <div class="fam-grid">
+            <div class="fam-card"><div class="fam-icon">🎓</div><div class="fam-name">HMG Academy</div><span class="fam-status badge badge-live"><span class="live-dot"></span> Website Live</span><p class="fam-desc">Strictly virtual school — all subjects, all levels. WAEC, NECO, UTME. Full LMS and CBT system.</p><p class="fam-gh">GitHub: <code>@hmgacademyhub</code></p></div>
+            <div class="fam-card" style="border-color:rgba(14,165,233,.3);"><div class="fam-icon">💻</div><div class="fam-name">HMG Technologies</div><span class="fam-status badge badge-blue">⚡ This is us</span><p class="fam-desc">AI-augmented tools for Nigerian businesses, schools, NGOs, and organisations.</p><p class="fam-gh">GitHub: <code>@hmgtechnologies</code></p></div>
+            <div class="fam-card"><div class="fam-icon">✝️</div><div class="fam-name">HMG Gospel</div><span class="fam-status badge badge-soon">⏳ Coming</span><p class="fam-desc">Spreading the gospel through every digital means. FaithTech tools, dramavangelism, podcasts, ebooks.</p><p class="fam-gh">GitHub: <code>@hmgospel</code></p></div>
+            <div class="fam-card"><div class="fam-icon">📢</div><div class="fam-name">HMG Media</div><span class="fam-status badge badge-soon">⏳ Coming</span><p class="fam-desc">Audio, visual, and audiovisual content production. Brand promotion for all HMG subsidiaries.</p><p class="fam-gh">YouTube: <code>@hmgconcepts</code></p></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem;">
+          <a href="portfolio.html" class="btn btn-blue">See Our Work</a>
+          <a href="services.html" class="btn btn-outline">Our Services</a>
+          <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">HMG Technologies</div><p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations.</p><div class="footer-socials"><a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" rel="noopener">💼</a><a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" rel="noopener">🐙</a><a href="https://youtube.com/@hmgconcepts" class="footer-social" target="_blank" rel="noopener">📺</a><a href="https://wa.me/2348100866322" class="footer-social" target="_blank" rel="noopener">💬</a></div></div>
+    <div><div class="footer-col-title">Navigation</div><div class="footer-links-list"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div></div>
+    <div><div class="footer-col-title">HMG Family</div><div class="footer-links-list"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Concepts ↗</a><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Academy ↗</a><a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">cssadewale ↗</a></div></div>
+    <div><div class="footer-col-title">GitHub</div><div class="footer-links-list"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">@hmgtechnologies ↗</a><a href="https://github.com/cssadewale" target="_blank" rel="noopener">@cssadewale ↗</a><a href="https://github.com/hmgacademyhub" target="_blank" rel="noopener">@hmgacademyhub ↗</a></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · All Rights Reserved</div><div class="footer-bottom-tagline">Built with AI leverage. Grounded in data. Solving real problems.</div></div>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

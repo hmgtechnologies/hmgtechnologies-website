@@ -1,0 +1,72 @@
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.vscode/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+*.bak
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node (in case ever used)
+node_modules/
+npm-debug.log
+.npm
+
+# Build output (not applicable but good practice)
+dist/
+build/
+out/
+
+# Environment / secrets — NEVER commit these
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+secrets.txt
+api-keys.txt
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+$RECYCLE.BIN/
+System Volume Information

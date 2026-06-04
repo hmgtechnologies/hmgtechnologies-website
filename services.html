@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Services | HMG Technologies — AI-Augmented Digital Solutions for Nigeria</title>
+  <meta name="description" content="HMG Technologies services: CBT systems, data dashboards, ML solutions, web applications, simulator suites, and digital skills training for Nigerian businesses and organisations."/>
+  <link rel="canonical" href="https://hmgtechnologies.pages.dev/services.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .srv-full-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
+    .sf-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 2.2rem;
+      transition: transform var(--tr), border-color var(--tr), box-shadow var(--tr);
+    }
+    .sf-card:hover { transform: translateY(-4px); border-color: rgba(14,165,233,.4); box-shadow: var(--shadow-blue); }
+    .sf-head { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.3rem; }
+    .sf-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--blue-glow); border: 1px solid rgba(14,165,233,.2); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+    .sf-title-wrap { flex: 1; }
+    .sf-title { font-size: 1.05rem; font-weight: 800; margin-bottom: .25rem; }
+    .sf-subtitle { font-size: .76rem; color: var(--muted); }
+    .sf-desc { font-size: .86rem; color: var(--text2); line-height: 1.8; margin-bottom: 1.3rem; }
+    .sf-includes { margin-bottom: 1.3rem; }
+    .sf-includes-title { font-size: .7rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .65rem; }
+    .sf-item { display: flex; align-items: flex-start; gap: .55rem; font-size: .82rem; color: var(--text2); margin-bottom: .4rem; }
+    .sf-check { color: var(--blue); font-size: .8rem; flex-shrink: 0; margin-top: .1rem; }
+    .sf-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+    .sf-cta { display: flex; gap: .6rem; }
+
+    /* Audience cards */
+    .audience-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+    .aud-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; transition: all var(--tr); }
+    .aud-card:hover { border-color: rgba(14,165,233,.4); transform: translateY(-3px); }
+    .aud-icon { font-size: 2rem; margin-bottom: .8rem; }
+    .aud-title { font-size: .9rem; font-weight: 800; color: var(--blue); margin-bottom: .5rem; }
+    .aud-desc  { font-size: .8rem; color: var(--text2); line-height: 1.65; margin-bottom: 1rem; }
+    .aud-tags  { display: flex; flex-wrap: wrap; gap: .35rem; justify-content: center; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; transition: all var(--tr); }
+    .price-card.featured { border-color: rgba(14,165,233,.5); background: linear-gradient(135deg, rgba(14,165,233,.06) 0%, var(--card) 60%); }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-blue); }
+    .price-badge { font-size: .65rem; font-weight: 700; padding: .2rem .65rem; border-radius: 50px; border: 1px solid; text-transform: uppercase; letter-spacing: .06em; display: inline-block; margin-bottom: 1rem; }
+    .price-name  { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; }
+    .price-desc  { font-size: .8rem; color: var(--text2); margin-bottom: 1.3rem; line-height: 1.65; }
+    .price-features { text-align: left; margin-bottom: 1.5rem; }
+    .pf-item { display: flex; align-items: flex-start; gap: .5rem; font-size: .8rem; color: var(--text2); margin-bottom: .4rem; }
+    .pf-icon { flex-shrink: 0; color: var(--blue); }
+
+    @media(max-width:900px){ .srv-full-grid{grid-template-columns:1fr;} .audience-grid{grid-template-columns:1fr 1fr;} .pricing-grid{grid-template-columns:1fr;} }
+    @media(max-width:600px){ .audience-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<!-- ANNOUNCEMENT BAR (v2) -->
+<div class="ann-bar" role="banner" aria-label="Site announcement">
+  <span>🚀 CBT Pro is live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy FREE for your school →</a></span>
+  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+</div>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="HMG Technologies Home">
+      <img src="assets/images/logo.png" alt="HMG Technologies" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <div><span class="nav-logo-text">HMG Technologies</span><span class="nav-logo-sub">subsidiary of HMG Concepts</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#enquire">💬 Get a Quote</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> → <span>Services</span></div>
+    <div class="section-label">What We Offer</div>
+    <h1 class="section-title">Services That <em>Solve Real Problems</em></h1>
+    <p class="section-sub" style="margin-bottom:1.5rem;">Every service we offer exists because a specific problem demanded a solution. We don't offer services to fill a catalogue — we offer them because we have the tools, experience, and track record to deliver them well.</p>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+      <span class="badge badge-live"><span class="live-dot"></span> All services active</span>
+      <span class="badge badge-blue">Nigerian context-first</span>
+      <span class="badge badge-new">AI-Augmented delivery</span>
+    </div>
+  </div>
+</div>
+
+<!-- FULL SERVICES -->
+<section style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">Six Core <em>Service Areas</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">Spanning EdTech, DataTech, and AI-augmented development — each service is backed by live, deployed work you can inspect.</p>
+    <div class="srv-full-grid">
+
+      <div class="sf-card aos" data-aos="fade">
+        <div class="sf-head"><div class="sf-icon">🏫</div><div class="sf-title-wrap"><div class="sf-title">CBT Systems & Exam Platforms</div><div class="sf-subtitle">For schools, training centres, and institutions</div></div></div>
+        <p class="sf-desc">We design, build, and deploy full Computer-Based Testing platforms tailored to your institution's specific needs. Our flagship CBT Pro is already live in Nigerian classrooms — and can be customised, white-labelled, or deployed for your school with minimal setup time.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">What's Included</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Teacher portal with question upload (CSV format)</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Student exam interface with timer and anti-cheat</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Auto-marking and certificate generation</div>
+          <div class="sf-item"><span class="sf-check">✓</span> 4-tab analytics dashboard for teachers</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Multi-subject, multi-teacher support</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Optional: Question Bank Manager companion tool</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Staff training and onboarding</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-blue">CBT Pro</span><span class="tag tag-green">Live Now</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">Schools</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Get CBT Pro for My School</a><a href="products.html#cbt-pro" class="btn btn-ghost btn-sm">See Live Demo</a></div>
+      </div>
+
+      <div class="sf-card aos" data-aos="fade" data-delay="100">
+        <div class="sf-head"><div class="sf-icon">📊</div><div class="sf-title-wrap"><div class="sf-title">Data Analysis & Business Dashboards</div><div class="sf-subtitle">For businesses, NGOs, and institutions</div></div></div>
+        <p class="sf-desc">We take your raw data — student records, sales figures, HR data, operational logs — and turn it into clear, actionable dashboards and reports. Power BI, Tableau, custom Streamlit apps, or Excel automation — whatever fits your workflow and budget.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">What's Included</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Exploratory data analysis (EDA) and data cleaning</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Power BI / Tableau interactive dashboards</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Custom Streamlit web analytics apps</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Excel / Google Sheets automation and dashboards</div>
+          <div class="sf-item"><span class="sf-check">✓</span> SQL database design and query optimisation</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Clear business recommendations with every deliverable</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-blue">Power BI</span><span class="tag tag-blue">Tableau</span><span class="tag">SQL</span><span class="tag">Streamlit</span><span class="tag">Excel</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Request a Dashboard</a></div>
+      </div>
+
+      <div class="sf-card aos" data-aos="fade">
+        <div class="sf-head"><div class="sf-icon">🤖</div><div class="sf-title-wrap"><div class="sf-title">Machine Learning & Predictive Solutions</div><div class="sf-subtitle">For data-driven businesses and institutions</div></div></div>
+        <p class="sf-desc">We build end-to-end ML solutions — from EDA and feature engineering through model training, evaluation, and live deployment via Streamlit or FastAPI. We document everything honestly, including what didn't work. 7 live ML models across 7 industries prove this is not aspirational — it is delivered.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">What's Included</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Full ML pipeline: EDA → feature engineering → training</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Classification, regression, NLP, and clustering</div>
+          <div class="sf-item"><span class="sf-check">✓</span> SHAP explainability for stakeholder trust</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Live Streamlit / FastAPI deployment</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Model documentation and business recommendations</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Staff training on interpreting model outputs</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-blue">Python / ML</span><span class="tag tag-blue">SHAP</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">NLP</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Discuss My Data Problem</a><a href="portfolio.html" class="btn btn-ghost btn-sm">See Live ML Projects</a></div>
+      </div>
+
+      <div class="sf-card aos" data-aos="fade" data-delay="100">
+        <div class="sf-head"><div class="sf-icon">⚡</div><div class="sf-title-wrap"><div class="sf-title">Custom AI-Augmented Web Applications</div><div class="sf-subtitle">For businesses, NGOs, schools, and churches</div></div></div>
+        <p class="sf-desc">Lightweight, fast, cost-effective web applications built using our AI-Augmented Development method — productivity tools, admin portals, automation platforms, community platforms, and bespoke workflow tools. If your team does something manually that a well-designed web app could do automatically, we want to hear about it.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">What's Included</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Custom web application design and development</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Backend: Supabase, SQLite, or lightweight APIs</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Responsive design (works on any device)</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Deployment on Vercel, Cloudflare Pages, or GitHub Pages</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Documentation and staff handover training</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-cyan">AI-Augmented</span><span class="tag">HTML/CSS/JS</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Tell Us What You Need</a></div>
+      </div>
+
+      <div class="sf-card aos" data-aos="fade">
+        <div class="sf-head"><div class="sf-icon">🛠️</div><div class="sf-title-wrap"><div class="sf-title">Data Tool Simulators for Training</div><div class="sf-subtitle">For training centres, schools, and corporate teams</div></div></div>
+        <p class="sf-desc">Our suite of 11 browser-based tool simulators replicates professional environments — SQL, Power BI, Tableau, VS Code, Azure, MySQL, and more — with zero installation, zero licence cost, and zero barriers to entry. Ideal for training programmes, onboarding, and digital skills development.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">Available Simulators</div>
+          <div class="sf-item"><span class="sf-check">✓</span> MS Excel, PgAdmin, MySQL Workbench</div>
+          <div class="sf-item"><span class="sf-check">✓</span> MS SQL Server, Azure Data Studio, DuckDB</div>
+          <div class="sf-item"><span class="sf-check">✓</span> VS Code, Power BI, Tableau, Azure</div>
+          <div class="sf-item"><span class="sf-check">✓</span> ChatLens (AI-powered conversation tool)</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Custom branding / white-label available on request</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-cyan">11 Tools</span><span class="tag tag-green">Zero Install</span><span class="tag">Training</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Licence for Training Use</a><a href="products.html#simulators" class="btn btn-ghost btn-sm">Browse Simulators</a></div>
+      </div>
+
+      <div class="sf-card aos" data-aos="fade" data-delay="100">
+        <div class="sf-head"><div class="sf-icon">🎓</div><div class="sf-title-wrap"><div class="sf-title">Digital Skills Training & Consultancy</div><div class="sf-subtitle">For organisations, schools, and community groups</div></div></div>
+        <p class="sf-desc">We offer workshops, training sessions, and strategic technology consultancy for organisations looking to build internal digital capacity. Led by a 15+ year educator and data scientist who understands how to actually teach — not just present. We practise what we preach.</p>
+        <div class="sf-includes">
+          <div class="sf-includes-title">What's Included</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Data literacy workshops (Excel, SQL, Power BI)</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Intro to data science and machine learning</div>
+          <div class="sf-item"><span class="sf-check">✓</span> CBT lab setup and training for school staff</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Digital transformation consultancy for institutions</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Custom training materials and resources</div>
+          <div class="sf-item"><span class="sf-check">✓</span> Virtual or onsite delivery</div>
+        </div>
+        <div class="sf-tags"><span class="tag tag-orange">Training</span><span class="tag tag-orange">Consultancy</span><span class="tag">Data Literacy</span><span class="tag">CBT Lab</span></div>
+        <div class="sf-cta"><a href="contact.html#enquire" class="btn btn-blue btn-sm">Book a Workshop</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">Who We Serve</div>
+    <h2 class="section-title">Built for <em>Every Type of Organisation</em></h2>
+    <p class="section-sub" style="margin-bottom:3rem;">Our tools and services are multi-audience — but every engagement starts with understanding your specific context, constraints, and goals.</p>
+    <div class="audience-grid">
+      <div class="aud-card aos" data-aos="fade">
+        <div class="aud-icon">🏫</div>
+        <div class="aud-title">Schools & Educational Institutions</div>
+        <p class="aud-desc">From primary to tertiary level. CBT systems, student analytics, question bank management, timetable tools, and school administration platforms.</p>
+        <div class="aud-tags"><span class="tag tag-blue">CBT Pro</span><span class="tag">Admin Tools</span><span class="tag">Analytics</span></div>
+      </div>
+      <div class="aud-card aos" data-aos="fade" data-delay="80">
+        <div class="aud-icon">💼</div>
+        <div class="aud-title">Nigerian SMEs & Businesses</div>
+        <p class="aud-desc">Data dashboards, productivity apps, automation tools, custom web portals — practical digital tools that give small businesses real operational advantages.</p>
+        <div class="aud-tags"><span class="tag tag-blue">Dashboards</span><span class="tag">Automation</span><span class="tag">Portals</span></div>
+      </div>
+      <div class="aud-card aos" data-aos="fade" data-delay="160">
+        <div class="aud-icon">🌍</div>
+        <div class="aud-title">NGOs & Community Organisations</div>
+        <p class="aud-desc">Impact tracking, beneficiary management, reporting dashboards, skills training platforms, and data collection systems — built for the realities of NGO budgets.</p>
+        <div class="aud-tags"><span class="tag tag-green">Impact Tracking</span><span class="tag">Reporting</span><span class="tag">Training</span></div>
+      </div>
+      <div class="aud-card aos" data-aos="fade" data-delay="240">
+        <div class="aud-icon">⛪</div>
+        <div class="aud-title">Churches & Faith Organisations</div>
+        <p class="aud-desc">Member management, event platforms, digital content tools, and gospel-driven technology — including FaithTech development under HMG Gospel.</p>
+        <div class="aud-tags"><span class="tag tag-blue">Church Tools</span><span class="tag">FaithTech</span><span class="tag">Digital Ministry</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--bg);padding:3rem 2rem;">
+  <div class="section-inner">
+    <div style="background:linear-gradient(135deg,#0284c7,#0ea5e9,#22d3ee);border-radius:var(--radius-xl);padding:3rem;text-align:center;position:relative;overflow:hidden;">
+      <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:.7rem;">Ready to Discuss Your Problem?</h2>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.85);max-width:500px;margin:0 auto 2rem;line-height:1.75;">No pressure, no jargon. Just a clear conversation about what you need and whether we are the right people to build it.</p>
+      <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html#enquire" class="btn" style="background:#fff;color:#0284c7;font-weight:800;">Start a Conversation</a>
+        <a href="https://wa.me/2348100866322" class="btn" style="border:2px solid rgba(255,255,255,.6);color:#fff;background:transparent;" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">HMG Technologies</div><p class="footer-brand-sub">AI-Augmented Tools for Nigerian Businesses, Schools, NGOs, and Organisations.</p><div class="footer-socials"><a href="https://linkedin.com/in/adewalesamsonadeagbo" class="footer-social" target="_blank" rel="noopener">💼</a><a href="https://github.com/hmgtechnologies" class="footer-social" target="_blank" rel="noopener">🐙</a><a href="https://youtube.com/@hmgconcepts" class="footer-social" target="_blank" rel="noopener">📺</a><a href="https://wa.me/2348100866322" class="footer-social" target="_blank" rel="noopener">💬</a></div></div>
+    <div><div class="footer-col-title">Navigation</div><div class="footer-links-list"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div></div>
+    <div><div class="footer-col-title">HMG Family</div><div class="footer-links-list"><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Concepts ↗</a><a href="https://hmgconcepts.pages.dev" target="_blank" rel="noopener">HMG Academy ↗</a><a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">cssadewale ↗</a><a href="#">HMG Gospel</a></div></div>
+    <div><div class="footer-col-title">GitHub</div><div class="footer-links-list"><a href="https://github.com/hmgtechnologies" target="_blank" rel="noopener">@hmgtechnologies ↗</a><a href="https://github.com/cssadewale" target="_blank" rel="noopener">@cssadewale ↗</a><a href="https://github.com/hmgacademyhub" target="_blank" rel="noopener">@hmgacademyhub ↗</a></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-text">© 2025–2026 HMG Technologies · HMG Concepts · All Rights Reserved</div><div class="footer-bottom-tagline">Built with AI leverage. Solving real Nigerian problems.</div></div>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
