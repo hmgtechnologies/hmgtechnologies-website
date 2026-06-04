@@ -234,8 +234,12 @@ html.no-ann { scroll-padding-top: 64px; }
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; padding: 0 2rem;
-  transition: top var(--tr-slow), background var(--tr-slow);
+  /* BUG FIX: Smooth transition when ann-bar is dismissed */
+  transition: top .35s ease, background var(--tr-slow), box-shadow var(--tr);
 }
+/* BUG FIX: When ann-bar is gone, nav slides up to top */
+.ann-gone .nav { top: 0; }
+.ann-gone .nav-mobile { top: 64px; }
 [data-theme="light"] .nav { background: rgba(240,246,255,.93); }
 
 .nav-inner {
@@ -301,6 +305,8 @@ html.no-ann { scroll-padding-top: 64px; }
   padding: 1rem 1.5rem; z-index: 999;
   flex-direction: column; gap: .25rem;
   animation: slideDown .2s ease;
+  /* BUG FIX: smooth top transition when ann-bar dismissed */
+  transition: top .35s ease;
 }
 .nav-mobile.open { display: flex; }
 .nav-mobile a { font-size: .88rem; color: var(--text2); padding: .65rem 1rem; border-radius: 9px; transition: all var(--tr); display: block; }
@@ -310,11 +316,19 @@ html.no-ann { scroll-padding-top: 64px; }
    06. PAGE HERO
 ════════════════════════════════════════════════════════════════ */
 .page-hero {
-  /* Offset for ann bar + nav */
-  padding: calc(var(--ann-h) + 120px) 2rem 4rem;
+  /* BUG FIX: Explicitly calculate offset for ann-bar + nav + buffer
+     ann-bar: 40px (var(--ann-h)) + nav: 64px + buffer: 20px = 124px min */
+  padding-top:    calc(var(--ann-h) + 64px + 56px);
+  padding-bottom: 4rem;
+  padding-left:   2rem;
+  padding-right:  2rem;
   background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--border);
   position: relative; overflow: hidden;
+}
+/* BUG FIX: When ann-bar dismissed, reduce top padding */
+.ann-gone .page-hero {
+  padding-top: calc(64px + 56px);
 }
 .page-hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -384,8 +398,19 @@ section { padding: 5rem 2rem; }
 .btn-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(249,115,22,.3); }
 .btn-orange:hover { border-color: var(--orange); }
 /* Loading state for buttons */
-.btn.loading { opacity: .7; cursor: not-allowed; }
-.btn.loading::before { content: ''; width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; }
+.btn.loading { opacity: .7; cursor: not-allowed; pointer-events: none; }
+/* BUG FIX: Use ::after for spinner (was ::before, conflicted with ripple effect) */
+.btn.loading::after {
+  content: '';
+  width: 14px; height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  /* Override the ripple ::after */
+  opacity: 1; background: transparent; inset: unset; position: static;
+  flex-shrink: 0;
+}
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ════════════════════════════════════════════════════════════════
@@ -720,6 +745,31 @@ section { padding: 5rem 2rem; }
 .aos[data-aos="slide-right"] { transform: translateX(30px); }
 .aos[data-aos="zoom"]        { transform: scale(.92); }
 .aos.visible { opacity: 1; transform: none; }
+
+/* ── BUG FIX: Critical elements must NEVER be invisible ─────────
+   Any element inside .hero-text, or with class .hero-text itself,
+   must always be visible regardless of AOS state.
+   Also covers the announcement bar, nav, and page-hero headings.
+   This prevents above-the-fold content from being permanently hidden
+   if the JS AOS observer has a race condition on page load.
+─────────────────────────────────────────────────────────────── */
+.hero-text,
+.hero-text *,
+.hero-eyebrow,
+.hero h1,
+.hero-desc,
+.hero-sub,
+.hero-btns,
+.trust-row,
+.ann-bar,
+.nav,
+.page-hero-inner h1,
+.page-hero-inner .section-label,
+.page-hero-inner p {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
 
 /* Float animation for hero decorations */
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
