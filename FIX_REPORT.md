@@ -153,3 +153,49 @@ with the real Formspree endpoint.
 
 ## Recommendation
 After review, redeploy the updated repo to Cloudflare Pages so the fixes go live.
+
+### 13) Tablet-specific hero typography and touch-layout improvement
+**Files:** `index.html`, `assets/css/style.css`
+
+Issues found:
+- hero heading used hard `<br>` line breaks, causing awkward wrapping on tablets
+- navigation stayed in desktop mode too long for tablet widths
+- decorative right-side terminal remained visible on touch devices where readability should take priority
+
+Fixes applied:
+- replaced hard hero line breaks with responsive line spans
+- improved heading scaling and wrapping on mid-size screens
+- hid the decorative hero terminal on touch devices for cleaner tablet rendering
+- moved the main navigation to hamburger mode earlier on tablets
+
+
+### 14) Non-clickable placeholder links removed
+**Files:** `index.html`, `services.html`, `_footer.html`, `assets/js/main.js`, `privacy.html`
+
+Issues found:
+- some footer and submenu-style links used `href="#"`, so they looked clickable but did nothing
+- the cookie banner "Learn more" link was also a dummy link and not actionable
+
+Fixes applied:
+- replaced placeholder footer links with real destinations
+- added a dedicated `privacy.html` page
+- connected the cookie banner "Learn more" link to that new page
+
+### 15) Products filter inconsistency fixed
+**File:** `products.html`
+
+Issue found:
+- the `EdTech` filter had no matching product card data, so the filter appeared broken or empty
+
+Fix applied:
+- tagged the flagship CBT Pro card with `data-category="edtech"` so the filter now returns a valid result
+
+### 16) Button semantics hardened
+**Files:** multiple HTML files
+
+Issue found:
+- many UI control buttons omitted `type="button"`
+- while not always breaking immediately, this is fragile and can trigger unexpected form submission behaviour later
+
+Fix applied:
+- added explicit `type="button"` to non-submit controls such as nav toggles, dismiss buttons, carousel buttons, and filter chips

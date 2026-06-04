@@ -39,6 +39,7 @@
     }
     /* BUG FIX: hero-text must always be visible — never opacity:0 */
     .hero-text {
+      min-width: 0;
       opacity: 1 !important;
       transform: none !important;
       visibility: visible !important;
@@ -91,7 +92,9 @@
     .hero h1 {
       font-size: clamp(2.2rem, 5.5vw, 3.8rem);
       font-weight: 900; line-height: 1.1; margin-bottom: 1.2rem; letter-spacing:-.02em;
+      text-wrap: balance;
     }
+    .hero-line { display:block; }
     .hero h1 em { font-style:normal; color:var(--blue); }
     .hero-desc { font-size:1rem; color:var(--text2); line-height:1.8; max-width:540px; margin-bottom:.9rem; }
     .hero-sub  { font-size:.88rem; color:var(--muted); font-style:italic; max-width:500px; margin-bottom:2rem; border-left:2px solid var(--blue); padding-left:.9rem; line-height:1.65; }
@@ -245,10 +248,35 @@
        1) Hide floating badges earlier so they do not clip or overlap the terminal.
        2) Collapse to a single-column hero sooner on tablets to avoid horizontal scroll.
     */
-    @media(max-width:1280px){
+    @media(max-width:1366px){
       .hero-inner    { grid-template-columns:minmax(0,1fr) minmax(320px,420px); gap:2rem; }
       .float-badge   { display:none; }
       .terminal-body { padding:1.15rem; font-size:.76rem; }
+      .hero h1       { font-size:clamp(2rem, 4.8vw, 3.3rem); }
+      .hero-line     { display:inline; }
+      .hero-line + .hero-line::before { content:' '; }
+    }
+    @media (pointer: coarse) {
+      .hero {
+        min-height: auto;
+        padding-bottom: 3rem;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual,
+      .float-badge {
+        display: none;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 7vw, 3.2rem);
+      }
+      .hero-line { display:inline; }
+      .hero-line + .hero-line::before { content:' '; }
+      .hero-desc,
+      .hero-sub {
+        max-width: 100%;
+      }
     }
     @media(max-width:1100px){
       .hero-inner    { grid-template-columns:1fr; }
@@ -305,7 +333,7 @@
 <!-- ANNOUNCEMENT BAR + NAV (v2) -->
 <div class="ann-bar" role="banner" aria-label="Site announcement">
   <span>🚀 CBT Pro is now live in Nigerian classrooms — <a href="products.html#cbt-pro">Deploy it FREE for your school →</a></span>
-  <button class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
+  <button type="button" class="ann-dismiss" aria-label="Dismiss announcement">✕</button>
 </div>
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
@@ -320,10 +348,10 @@
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
-      <button class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
+      <button type="button" class="theme-toggle" id="theme-toggle" title="Switch theme" aria-label="Toggle dark/light mode">☀️</button>
       <a href="contact.html#enquire" class="nav-cta">Get a Quote</a>
     </div>
-    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button type="button" class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
@@ -341,7 +369,7 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-eyebrow"><span class="live-dot"></span> Subsidiary of HMG Concepts · Lagos, Nigeria</div>
-      <h1 id="hero-h1">We Build <em>AI-Augmented</em><br>Tools That Solve<br>Real Problems</h1>
+      <h1 id="hero-h1"><span class="hero-line">We Build <em>AI-Augmented</em></span><span class="hero-line">Tools That Solve</span><span class="hero-line">Real Problems</span></h1>
       <p class="hero-desc">HMG Technologies designs and deploys digital tools, data dashboards, CBT systems, automation platforms, and custom AI-augmented software — built specifically for Nigerian businesses, schools, NGOs, and organisations.</p>
       <p class="hero-sub">"We don't build technology for its own sake. We build it because a problem demands a solution."</p>
       <div class="hero-btns">
@@ -582,9 +610,9 @@
         </div>
       </div>
       <div class="carousel-controls">
-        <button class="car-btn car-prev" aria-label="Previous testimonial">←</button>
+        <button type="button" class="car-btn car-prev" aria-label="Previous testimonial">←</button>
         <div class="car-dots" role="tablist" aria-label="Testimonial indicators"></div>
-        <button class="car-btn car-next" aria-label="Next testimonial">→</button>
+        <button type="button" class="car-btn car-next" aria-label="Next testimonial">→</button>
       </div>
     </div>
   </div>
@@ -696,7 +724,7 @@
           <a href="https://hmgconcepts.pages.dev" target="_blank">HMG Concepts ↗</a>
           <a href="https://hmgconcepts.pages.dev" target="_blank">HMG Academy ↗</a>
           <a href="https://cssadewale.pages.dev"  target="_blank">cssadewale ↗</a>
-          <a href="#">HMG Gospel</a><a href="#">HMG Media</a>
+          <a href="https://github.com/hmgospel" target="_blank" rel="noopener">HMG Gospel ↗</a><a href="https://youtube.com/@hmgconcepts" target="_blank" rel="noopener">HMG Media ↗</a>
         </div>
       </div>
       <div>
