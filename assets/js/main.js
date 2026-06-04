@@ -262,12 +262,18 @@ function initForm() {
     e.preventDefault();
     if (!validateForm(form)) return;
 
+    const action = form.getAttribute('action') || '';
+    if (!action || action.includes('your-hmgtech-form-id')) {
+      showToast('Contact form not configured yet', 'Please replace the Formspree form ID or use WhatsApp directly: +234 810 086 6322', 'warning', 7000);
+      return;
+    }
+
     const btn = form.querySelector('.form-submit');
     const origText = btn ? btn.textContent : '';
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; btn.classList.add('loading'); }
 
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(action, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' }
@@ -803,7 +809,7 @@ function initServiceChips() {
       document.querySelectorAll('.sch').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       const val = btn.dataset.service || btn.textContent.trim();
-      const sel = document.getElementById('service-select');
+      const sel = document.getElementById('service-select') || document.querySelector('select[name="service"]');
       if (sel) {
         for (const opt of sel.options) {
           if (opt.value === val) { sel.value = val; break; }
