@@ -462,7 +462,7 @@ function initCookieBanner() {
     <p class="cookie-text">
       🍪 This website uses only essential browser storage (localStorage) to remember your theme
       preference and announcement dismissal. No tracking cookies. No third-party analytics.
-      <a href="#" onclick="return false;">Learn more</a>
+      <a href="privacy.html">Learn more</a>
     </p>
     <div class="cookie-actions">
       <button class="btn btn-blue btn-sm" id="cookie-accept">Got it</button>
