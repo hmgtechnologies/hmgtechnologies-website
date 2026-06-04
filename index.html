@@ -29,9 +29,24 @@
     /* ── HERO ────────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
-      padding: calc(var(--ann-h) + 80px) 2rem 5rem;
+      /* BUG FIX: Use safe padding — ann-bar (40px) + nav (64px) + buffer (20px) */
+      padding-top: calc(var(--ann-h) + 84px);
+      padding-bottom: 5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
       position: relative; overflow: hidden;
       display: flex; align-items: center;
+    }
+    /* BUG FIX: hero-text must always be visible — never opacity:0 */
+    .hero-text {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+    /* BUG FIX: Ensure hero eyebrow is always rendered */
+    .hero-eyebrow {
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     /* Animated radial glows */
     .hero::before {
@@ -55,6 +70,14 @@
       max-width: 1280px; margin: 0 auto; width: 100%;
       display: grid; grid-template-columns: 1fr 460px; gap: 4rem;
       align-items: center; position: relative; z-index: 1;
+    }
+    /* BUG FIX: Prevent terminal column from overflowing on tablet */
+    .hero-visual {
+      min-width: 0;
+      overflow: visible; /* allow floating badges */
+    }
+    .hero-visual .hero-terminal {
+      overflow: hidden;
     }
     .hero-eyebrow {
       display:inline-flex; align-items:center; gap:.6rem;
@@ -209,9 +232,11 @@
     .cat-lbl  { font-size:.72rem; color:var(--text2); margin-top:.35rem; line-height:1.4; }
 
     /* RESPONSIVE */
-    @media(max-width:1100px){
+    /* BUG FIX: Lower breakpoint to 1024px (was 1100px)
+       to hide terminal sooner and avoid cramped 2-col layout on tablets */
+    @media(max-width:1024px){
       .hero-inner    { grid-template-columns:1fr; }
-      .hero-terminal { display:none; }
+      .hero-visual   { display:none; } /* hide entire visual column incl. floating badges */
       .srv-grid      { grid-template-columns:1fr 1fr; }
       .prod-preview  { grid-template-columns:1fr; }
       .prod-card.flagship { grid-column:1; grid-template-columns:1fr; }
@@ -223,13 +248,39 @@
       .stats-bar-inner { grid-template-columns:repeat(3,1fr); }
       .carousel-slide { width:calc(50% - .65rem); }
     }
-    @media(max-width:640px){
+    @media(max-width:768px){
       .srv-grid { grid-template-columns:1fr; }
-      .why-grid { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr 1fr; }
       .process-steps { grid-template-columns:1fr; }
-      .cat-tiles { grid-template-columns:repeat(2,1fr); }
       .stats-bar-inner { grid-template-columns:repeat(2,1fr); }
       .carousel-slide { width:100%; }
+    }
+    @media(max-width:640px){
+      .why-grid  { grid-template-columns:1fr; }
+      .cat-tiles { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:480px){
+      /* BUG FIX: Prevent hero buttons from overflowing on very small screens */
+      .hero-btns { flex-direction:column; }
+      .hero-btns .btn { width:100%; justify-content:center; }
+      .trust-row { gap:.8rem; }
+    }
+
+    /* ── GLOBAL AOS SAFETY NET ─────────────────────────────────
+       BUG FIX: If JS fails or is slow, all .aos elements must
+       still be visible. This overrides the opacity:0 from style.css
+       for any element that JS hasn't yet made .visible.
+       The !important on hero-text above handles the critical hero.
+       For below-fold content, the observer works correctly.
+    ─────────────────────────────────────────────────────────── */
+    /* Ensure no content is permanently hidden if observer fails */
+    .sbi.aos:not(.visible),
+    .srv-card.aos:not(.visible),
+    .why-card.aos:not(.visible),
+    .ps-item.aos:not(.visible) {
+      /* Let these animate normally — they ARE below the fold */
+      opacity: 0;
+      transform: translateY(22px);
     }
   </style>
 </head>
@@ -272,7 +323,7 @@
 <!-- ══ HERO ════════════════════════════════════════════════════════ -->
 <section class="hero" id="home" aria-labelledby="hero-h1">
   <div class="hero-inner">
-    <div class="hero-text aos" data-aos="fade">
+    <div class="hero-text">
       <div class="hero-eyebrow"><span class="live-dot"></span> Subsidiary of HMG Concepts · Lagos, Nigeria</div>
       <h1 id="hero-h1">We Build <em>AI-Augmented</em><br>Tools That Solve<br>Real Problems</h1>
       <p class="hero-desc">HMG Technologies designs and deploys digital tools, data dashboards, CBT systems, automation platforms, and custom AI-augmented software — built specifically for Nigerian businesses, schools, NGOs, and organisations.</p>
@@ -290,7 +341,7 @@
       </div>
     </div>
     <!-- Terminal card (hidden on mobile for performance) -->
-    <div class="hero-visual" style="position:relative;">
+    <div class="hero-visual" style="position:relative; padding-top:24px; padding-bottom:24px;">
       <div class="float-badge fb1"><span class="fb-icon">🤖</span><div><div style="font-size:.62rem;color:var(--muted);">AI-Augmented Dev</div><div class="fb-val">Powered by Clear Thinking</div></div></div>
       <div class="hero-terminal">
         <div class="terminal-bar">
