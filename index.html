@@ -68,7 +68,8 @@
     }
     .hero-inner {
       max-width: 1280px; margin: 0 auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 460px; gap: 4rem;
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+      gap: clamp(2rem, 4vw, 4rem);
       align-items: center; position: relative; z-index: 1;
     }
     /* BUG FIX: Prevent terminal column from overflowing on tablet */
@@ -78,6 +79,7 @@
     }
     .hero-visual .hero-terminal {
       overflow: hidden;
+      max-width: 100%;
     }
     .hero-eyebrow {
       display:inline-flex; align-items:center; gap:.6rem;
@@ -109,7 +111,14 @@
     }
     .tb-dot { width:10px; height:10px; border-radius:50%; }
     .tb-title { font-size:.73rem; color:var(--muted); margin-left:.4rem; font-family:var(--ff-mono); }
-    .terminal-body { padding:1.4rem; font-family:var(--ff-mono); font-size:.8rem; line-height:1.9; }
+    .terminal-body {
+      padding:1.4rem;
+      font-family:var(--ff-mono);
+      font-size:.8rem;
+      line-height:1.9;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
     .t-comment { color:var(--muted); }
     .t-key     { color:var(--cyan); }
     .t-val     { color:#10b981; }
@@ -232,11 +241,18 @@
     .cat-lbl  { font-size:.72rem; color:var(--text2); margin-top:.35rem; line-height:1.4; }
 
     /* RESPONSIVE */
-    /* BUG FIX: Lower breakpoint to 1024px (was 1100px)
-       to hide terminal sooner and avoid cramped 2-col layout on tablets */
-    @media(max-width:1024px){
+    /* Tablet fix:
+       1) Hide floating badges earlier so they do not clip or overlap the terminal.
+       2) Collapse to a single-column hero sooner on tablets to avoid horizontal scroll.
+    */
+    @media(max-width:1280px){
+      .hero-inner    { grid-template-columns:minmax(0,1fr) minmax(320px,420px); gap:2rem; }
+      .float-badge   { display:none; }
+      .terminal-body { padding:1.15rem; font-size:.76rem; }
+    }
+    @media(max-width:1100px){
       .hero-inner    { grid-template-columns:1fr; }
-      .hero-visual   { display:none; } /* hide entire visual column incl. floating badges */
+      .hero-visual   { display:none; } /* hide entire visual column on tablets */
       .srv-grid      { grid-template-columns:1fr 1fr; }
       .prod-preview  { grid-template-columns:1fr; }
       .prod-card.flagship { grid-column:1; grid-template-columns:1fr; }
@@ -483,10 +499,10 @@
 
     <!-- Category count tiles -->
     <div class="cat-tiles" style="margin-top:1.2rem;">
-      <a href="products.html#edtech"      class="cat-tile" style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);" onmouseover="this.style.borderColor='rgba(16,185,129,.5)'" onmouseout="this.style.borderColor='rgba(16,185,129,.2)'"><div class="cat-num" style="color:var(--green);">16</div><div class="cat-lbl">🏫 EdTech Tools &amp; LMS Platforms</div></a>
-      <a href="products.html#ml-models"   class="cat-tile" style="background:var(--blue-glow);border:1px solid rgba(14,165,233,.2);"    onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">7</div><div class="cat-lbl">📊 ML / Data Science Models</div></a>
+      <a href="portfolio.html#lms-platforms"      class="cat-tile" style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);" onmouseover="this.style.borderColor='rgba(16,185,129,.5)'" onmouseout="this.style.borderColor='rgba(16,185,129,.2)'"><div class="cat-num" style="color:var(--green);">16</div><div class="cat-lbl">🏫 EdTech Tools &amp; LMS Platforms</div></a>
+      <a href="portfolio.html#ml-models"   class="cat-tile" style="background:var(--blue-glow);border:1px solid rgba(14,165,233,.2);"    onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">7</div><div class="cat-lbl">📊 ML / Data Science Models</div></a>
       <a href="products.html#simulators"  class="cat-tile" style="background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.2);" onmouseover="this.style.borderColor='rgba(34,211,238,.5)'" onmouseout="this.style.borderColor='rgba(34,211,238,.2)'"><div class="cat-num" style="color:var(--cyan);">11</div><div class="cat-lbl">🛠️ DataTech Simulators</div></a>
-      <a href="products.html#faithtech"   class="cat-tile" style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);" onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">✝️</div><div class="cat-lbl">✝️ FaithTech Projects</div></a>
+      <a href="about.html#faithtech"   class="cat-tile" style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);" onmouseover="this.style.borderColor='rgba(14,165,233,.5)'" onmouseout="this.style.borderColor='rgba(14,165,233,.2)'"><div class="cat-num" style="color:var(--blue);">✝️</div><div class="cat-lbl">✝️ FaithTech Projects</div></a>
     </div>
   </div>
 </section>
